@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+    // "plugin:storybook/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "root": true,
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": "off"
+  }
+}
