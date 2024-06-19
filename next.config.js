@@ -7,9 +7,6 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(new URL('.', import.meta.url).pathname, 'src/styles')],
   },
-  experimental: {
-    appDir: true, // This enables the app directory feature in Next.js 13
-  },
   // Allows for import and use of SVGs as jsx components
   webpack(config) {
     config.module.rules.push({
