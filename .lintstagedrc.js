@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import path from 'path';
 
 const buildEslintCommand = (filenames) =>
