@@ -4,15 +4,6 @@ This is a [Next.js](https://nextjs.org/) + [Typescript](https://www.typescriptla
 
 It contains a boilerplate project set up with Next.js, TypeScript, ESLint, Prettier, Husky, LintStaged, and SCSS for styling. It's designed to kickstart new projects quickly and efficiently.
 
-## Technologies Used
-
-- **Next.js**: A React framework for building web applications.
-- **TypeScript**: Static type-checking for JavaScript.
-- **ESLint**: Linter for identifying and reporting on patterns found in ECMAScript/JavaScript code.
-- **Prettier**: Opinionated code formatter.
-- **Husky**: Tool to manage git hooks.
-- **LintStaged**: Run linters on git staged files.
-- **SCSS**: CSS preprocessor for styling.
 
 ## Configuration
 
@@ -23,7 +14,7 @@ The project comes pre-configured with:
 - [**SCSS**](https://sass-lang.com/) - CSS preprocessor for styling.
 - [**ESLint**](https://eslint.org/) - Configured to find and fix common problems in the code and enforce best practices.
 - [**Prettier**](https://prettier.io/) - Integrated with ESLint for consistent code formatting.
-- **Husky & LintStaged**: Automatically lint and format staged files before committing.
+- [**Husky**](https://typicode.github.io/husky/) & [**LintStaged**](https://www.npmjs.com/package/lint-staged): Automatically lint and format staged files before committing.
 
 ## Getting Started
 
@@ -31,7 +22,10 @@ To get started with this boilerplate, follow these steps:
 
 1. **Clone the Repository**
 
-```git clone https://github.com/yourusername/project-boilerplate.git cd project-boilerplate```
+```javascript
+git clone https://github.com/yourusername/project-boilerplate.git 
+cd devfest-boilerplate
+```
 
 2. **Install Dependencies**
 
