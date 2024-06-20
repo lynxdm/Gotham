@@ -1,7 +1,7 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+// import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 import * as gtag from '../lib/google-analytics/ga';
 import ReactQueryProvider from '@/lib/reactQuery/providers';
@@ -9,16 +9,16 @@ import './globals.css';
 import Head from 'next/head';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  // const pathname = usePathname();
+  // const searchParams = useSearchParams();
 
   // effect for google analytics to track page change
-  React.useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      gtag.pageview(url);
-    };
-    handleRouteChange(pathname);
-  }, [pathname, searchParams]);
+  // React.useEffect(() => {
+  //   const handleRouteChange = (url: string) => {
+  //     gtag.pageview(url);
+  //   };
+  //   handleRouteChange(pathname);
+  // }, [pathname, searchParams]);
 
   return (
     <html lang='en'>
