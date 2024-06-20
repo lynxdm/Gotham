@@ -10,7 +10,7 @@ interface GtagConfig {
 }
 
 interface Window {
-  gtag(type: 'config' | 'event', trackingId: string, config?: Record<GtagConfig>): void;
+  gtag(type: 'config' | 'event', trackingId: string, config?: Partial<GtagConfig>): void;
 }
 
 declare const window: Window & typeof globalThis;
