@@ -4,7 +4,6 @@ This is a [Next.js](https://nextjs.org/) + [Typescript](https://www.typescriptla
 
 It contains a boilerplate project set up with Next.js, TypeScript, ESLint, Prettier, Husky, LintStaged, and SCSS for styling. It's designed to kickstart new projects quickly and efficiently.
 
-
 ## Configuration
 
 The project comes pre-configured with:
@@ -23,7 +22,7 @@ To get started with this boilerplate, follow these steps:
 1. **Clone the Repository**
 
 ```javascript
-git clone https://github.com/yourusername/project-boilerplate.git 
+git clone https://github.com/yourusername/project-boilerplate.git
 cd devfest-boilerplate
 ```
 
@@ -31,18 +30,10 @@ cd devfest-boilerplate
 
 Navigate to the project directory and install the required dependencies.
 
-```npm install```
+`npm install`
 
 The application will start running on `http://localhost:3000`.
-
 
 ## Contributing
 
 Contributions are welcome. Please feel free to submit a pull request.
-
-
-
-
-
-
-
