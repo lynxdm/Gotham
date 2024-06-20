@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link
           itemProp='thumbnailUrl'
-          href='https://www.devfestlagos.com/route-to-your-meta-image' // replace with actual route
+          href='https://www.devfestlagos.com/next.svg' // replace with actual route
         />
       </Head>
       <Script
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* See: https://stackoverflow.com/a/35785393 */}
         <span itemProp='thumbnail' itemScope itemType='http://schema.org/ImageObject'>
           {/* replace href with actual route */}
-          <link itemProp='url' href='https://www.devfestlagos.com/route-to-your-meta-image' />{' '}
+          <link itemProp='url' href='https://www.devfestlagos.com/next.svg' />{' '}
         </span>
         <ReactQueryProvider>
           {/* Your layout content, including header, main content, footer, etc. */}
