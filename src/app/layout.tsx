@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 import * as gtag from '../lib/google-analytics/ga';
@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </span>
         <ReactQueryProvider>
           {/* Your layout content, including header, main content, footer, etc. */}
-          {children}
+          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
         </ReactQueryProvider>
       </body>
     </html>
