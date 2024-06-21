@@ -13,13 +13,13 @@ type Props = {
 };
 
 export const SEO: FC<Props> = ({
-  title: _title,
-  description,
+  title = 'DevFest Boilerplate',
+  description = 'test',
   keywords = 'gdg lagos, devfest, devfest lagos, devfest lagos 2023',
-  image = '/og-images/home-page.png',
+  // image = '/og-images/home-page.png',
   tags = [],
 }) => {
-  const title = `Devfest Lagos 2023 | ${_title}`;
+  // const title = `Devfest Lagos 2023 | ${_title}`;
 
   return (
     <Head>
@@ -38,9 +38,9 @@ export const SEO: FC<Props> = ({
       <meta
         property='og:image'
         itemProp='image'
-        content={`https://www.devfestlagos.com/next.svg`}
+        content={`https://www.devfestlagos.com/mock-og.png`}
       />
-      {image && (
+      {/* {image && (
         <>
           <meta name='twitter:image' content={`https://www.devfestlagos.com/${image}`} />
           <meta
@@ -49,7 +49,7 @@ export const SEO: FC<Props> = ({
             content={`https://www.devfestlagos.com/${image}`}
           />
         </>
-      )}
+      )} */}
       {keywords && <meta name='keywords' content={keywords} />}
       {tags.map((tag, index) => (
         <meta key={index} name={tag.name} content={tag.content} />
