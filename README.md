@@ -34,6 +34,26 @@ Navigate to the project directory and install the required dependencies.
 
 The application will start running on `http://localhost:3000`.
 
+
+
+## Google Analytics
+
+This boilerplate is configured to use Google Analytics to collect usage data using Next.js third party libraries.
+
+See: https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#google-analytics
+
+All you have to do is;
+
+1. **Add the measurement ID to ``.env`` file**
+
+At the .env file, replace the ``YOUR_TRACKING_ID_HERE`` value with your measurement ID and you're good to go! The existing configuration tracks pageviews, sessions and user visits.
+
+2. **Tracking specific events**
+
+To track specific events like users clicking on a CTA or subscribing to DevFest updates, see example in ``src/app/test/page.tsx`` or see https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#sending-events-1.
+
+Feel free to delete the folder and page after you have gotten the hang of the implementation.
+
 ## Contributing
 
 Contributions are welcome. Please feel free to submit a pull request.
