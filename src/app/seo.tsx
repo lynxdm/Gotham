@@ -26,6 +26,7 @@ export const SEO: FC<Props> = ({
       <title>{title}</title>
       <meta charSet='UTF-8' />
       <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+      <meta property='og:url' content='https://devfest-boilerplate.vercel.app/mock-og.png' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       <meta name='description' content={description} />
       <meta name='twitter:title' content={title} />
@@ -38,7 +39,7 @@ export const SEO: FC<Props> = ({
       <meta
         property='og:image'
         itemProp='image'
-        content={`https://www.devfestlagos.com/mock-og.png`}
+        content={`https://devfest-boilerplate.vercel.app/mock-og.png`}
       />
       {/* {image && (
         <>
