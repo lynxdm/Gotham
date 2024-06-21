@@ -1,5 +1,3 @@
-'use client';
-
 import React, { Suspense } from 'react';
 // import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
