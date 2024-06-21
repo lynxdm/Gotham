@@ -1,13 +1,7 @@
 'use client';
-import { Metadata } from 'next';
 import { SEO } from '@/seo';
 import { sendGAEvent } from '@next/third-parties/google';
-
-const metadata: Metadata = {
-  title: 'Coming Soon',
-  description: 'DevFest Lagos comes up on...',
-  keywords: 'devfest, devfest lagos, coming soon, date, venue',
-};
+import { metadata } from './metadata';
 
 const GAEvent = () => {
   return (
