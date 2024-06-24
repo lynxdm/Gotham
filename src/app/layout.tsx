@@ -1,7 +1,10 @@
 import React from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import ReactQueryProvider from '@/lib/reactQuery/providers';
-import './globals.css';
+import { classNames } from '@/utils/classNames';
+import localFont from 'next/font/local';
+import { GeistSans } from 'geist/font/sans';
+import '../styles/index.scss';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,9 +14,34 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://devfest-boilerplate.vercel.app/'), // synonymous to the base URL
 };
 
+const GeneralSans = localFont({
+  src: [
+    {
+      path: '../fonts/GeneralSans-Regular.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/GeneralSans-Medium.woff',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/GeneralSans-Semibold.woff',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/GeneralSans-Bold.woff',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+});
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='en' className={classNames(GeistSans.className, GeneralSans.className)}>
       <body>
         <ReactQueryProvider>
           {/* Your layout content, including header, main content, footer, etc goes here. */}
