@@ -21,7 +21,7 @@ client.interceptors.request.use(
   },
 );
 
-client.interceptors.request.use(
+client.interceptors.response.use(
   async (response) => {
     // interceptor logic goes here. e.g additional headers, request encryption, session management, etc.
 
