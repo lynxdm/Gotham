@@ -1,0 +1,31 @@
+// samples below
+
+@mixin heading-1 {
+  font-size: 7.2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.2rem;
+}
+
+@mixin heading-2 {
+  font-size: 6.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.05rem;
+}
+
+@mixin heading-3 {
+  font-size: 5.6rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@mixin heading-4 {
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

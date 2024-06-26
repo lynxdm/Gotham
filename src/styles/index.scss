@@ -1,3 +1,10 @@
 @import 'core/globals';
+@import 'core/typography';
+@import 'core/variables';
 
 @import 'pages/test';
+
+@import 'components/sample-button';
+
+@import 'utils/breakpoints';
+@import 'utils/mixins';
