@@ -30,11 +30,42 @@ cd devfest-boilerplate
 
 Navigate to the project directory and install the required dependencies.
 
-`npm install`
+```javascript
+npm install
+```
 
 The application will start running on `http://localhost:3000`.
 
+## SEO
 
+This boilerplate exploits Next.js SEO abilities to optimize SEO throught the project.
+
+In `/src/app/layout.tsx`, which is the RootLayout thst wraps over the entire project (See here: https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#root-layout-required), you will find the metadata object instantiated. This metadata is available project-wide. However, to implement page-specific SEO, it is important to instantiate a metadata object on every page.
+
+If in `/src/app/layout.tsx`, you have:
+
+```javascript
+export const metadata = {
+  title: 'DevFest Lagos',
+  description: 'DevFest Lagos is a...',
+  openGraph: {
+    title: 'DevFest Lagos',
+    description: 'DevFest Lagos is a...',
+  },
+};
+```
+
+In another page, (e.g. `/src/app/test/page.tsx`), you can implement page specific SEO like by creating a new metadata object to override properties that which exists at the root and add new properties:
+
+```javascript
+export const metadata = {
+  title: 'DevFest Lagos | Coming Soon',
+  description: 'DevFest Lagos comes up on...',
+  keywords: 'devfest, devfest lagos, coming soon, date, venue',
+};
+```
+
+or by
 
 ## Google Analytics
 
@@ -44,13 +75,13 @@ See: https://nextjs.org/docs/app/building-your-application/optimizing/third-part
 
 All you have to do is;
 
-1. **Add the measurement ID to ``.env`` file**
+1. **Add the measurement ID to `.env` file**
 
-At the .env file, replace the ``YOUR_TRACKING_ID_HERE`` value with your measurement ID and you're good to go! The existing configuration tracks pageviews, sessions and user visits.
+At the .env file, replace the `YOUR_TRACKING_ID_HERE` value with your measurement ID and you're good to go! The existing configuration tracks pageviews, sessions and user visits.
 
 2. **Tracking specific events**
 
-To track specific events like users clicking on a CTA or subscribing to DevFest updates, see example in ``src/app/test/page.tsx`` or see https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#sending-events-1.
+To track specific events like users clicking on a CTA or subscribing to DevFest updates, see example in `src/app/test/page.tsx` or see https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#sending-events-1.
 
 Feel free to delete the folder and page after you have gotten the hang of the implementation.
 
