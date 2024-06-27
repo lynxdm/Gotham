@@ -4,6 +4,101 @@ This is a [Next.js](https://nextjs.org/) + [Typescript](https://www.typescriptla
 
 It contains a boilerplate project set up with Next.js, TypeScript, ESLint, Prettier, Husky, LintStaged, and SCSS for styling. It's designed to kickstart new projects quickly and efficiently.
 
+## Getting Started
+
+To get started with this boilerplate, follow these steps:
+
+1. **Create your repository and clone it onto your local machine**
+
+```javascript
+git clone <your-repo-url>
+cd <your-repo-name>
+code .
+```
+
+2. **Afterwards, set the URL of the boilerplate as the upstream repository by running the following command;**
+
+```javascript
+git remote add upstream https://github.com/GDG-W/devfest-boilerplate.git
+```
+
+3. **Fetch and pull the boilerplate code onto your project**
+
+```javascript
+git fetch upstream
+git pull upstream main
+```
+
+4. **Install all dependencies**
+
+```javascript
+npm install
+```
+
+5. **Ensure that you're pushing your commits to the ``origin`` and not the ``upstream`` repository/branch by doing either of the following;**
+
+a. **Removing the upstream branch**
+
+Remove the upstream branch by running the following command;
+
+```javascript
+git remote remove upstream
+```
+
+b. Setting a default push repository
+
+Run ``git remote -v`` to see the list of remote branches on your project. You should see something like below;
+
+```javascript
+origin  <your-repo-url>(fetch)
+origin  <your-repo-url>(push)
+upstream        https://github.com/GDG-W/devfest-boilerplate.git (fetch)
+upstream        https://github.com/GDG-W/devfest-boilerplate.git (push)
+```
+
+To set your default push repository as origin, run the following command;
+
+```javascript
+git config --global push.default current
+```
+
+Now, all of your commits and pushes are directed to your branch/repository.
+
+### OR
+
+1. **Clone the boilerplate repository**
+
+```javascript
+git clone https://github.com/GDG-W/devfest-boilerplate.git
+cd devfest-boilerplate
+code .
+```
+
+2. **Replace git origin with your repository origin**
+Replace the boilerplate URL with your repository URL as origin by running the following commands;
+
+```javascript
+git remote -v
+git remote remove origin
+git remote add origin <your-repo-url>
+```
+
+3. **Test**
+Run ``git remote -v`` to confirm that your remote origin has been accurately replaced.
+
+4. **Install dependencies**
+Navigate to the project directory and install the required dependencies.
+
+```javascript
+npm install
+```
+
+5. **Start the project**
+The application will start running on `http://localhost:3000`.
+
+5. **Proceed with committing and pushing changes to your branch/repo.**
+
+
 ## Configuration
 
 The project comes pre-configured with:
@@ -14,27 +109,6 @@ The project comes pre-configured with:
 - [**ESLint**](https://eslint.org/) - Configured to find and fix common problems in the code and enforce best practices.
 - [**Prettier**](https://prettier.io/) - Integrated with ESLint for consistent code formatting.
 - [**Husky**](https://typicode.github.io/husky/) & [**LintStaged**](https://www.npmjs.com/package/lint-staged): Automatically lint and format staged files before committing.
-
-## Getting Started
-
-To get started with this boilerplate, follow these steps:
-
-1. **Clone the Repository**
-
-```javascript
-git clone https://github.com/yourusername/project-boilerplate.git
-cd devfest-boilerplate
-```
-
-2. **Install Dependencies**
-
-Navigate to the project directory and install the required dependencies.
-
-```javascript
-npm install
-```
-
-The application will start running on `http://localhost:3000`.
 
 ## SEO
 
