@@ -4,9 +4,8 @@
 @import 'core/typography';
 @import 'core/variables';
 @import 'core/abstract';
+@import 'utils/mixins';
+
+@import 'components/button';
 
 @import 'pages/home';
-
-@import 'components/sample-button';
-
-@import 'utils/mixins';
