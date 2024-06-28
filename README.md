@@ -35,7 +35,7 @@ git pull upstream main
 npm install
 ```
 
-5. **Ensure that you're pushing your commits to the ``origin`` and not the ``upstream`` repository/branch by doing either of the following;**
+5. **Ensure that you're pushing your commits to the `origin` and not the `upstream` repository/branch by doing either of the following;**
 
 a. **Removing the upstream branch**
 
@@ -47,7 +47,7 @@ git remote remove upstream
 
 b. Setting a default push repository
 
-Run ``git remote -v`` to see the list of remote branches on your project. You should see something like below;
+Run `git remote -v` to see the list of remote branches on your project. You should see something like below;
 
 ```javascript
 origin  <your-repo-url>(fetch)
@@ -75,7 +75,7 @@ code .
 ```
 
 2. **Replace git origin with your repository origin**
-Replace the boilerplate URL with your repository URL as origin by running the following commands;
+   Replace the boilerplate URL with your repository URL as origin by running the following commands;
 
 ```javascript
 git remote -v
@@ -84,20 +84,19 @@ git remote add origin <your-repo-url>
 ```
 
 3. **Test**
-Run ``git remote -v`` to confirm that your remote origin has been accurately replaced.
+   Run `git remote -v` to confirm that your remote origin has been accurately replaced.
 
 4. **Install dependencies**
-Navigate to the project directory and install the required dependencies.
+   Navigate to the project directory and install the required dependencies.
 
 ```javascript
 npm install
 ```
 
 5. **Start the project**
-The application will start running on `http://localhost:3000`.
+   The application will start running on `http://localhost:3000`.
 
-5. **Proceed with committing and pushing changes to your branch/repo.**
-
+6. **Proceed with committing and pushing changes to your branch/repo.**
 
 ## Configuration
 
