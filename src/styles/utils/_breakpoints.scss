@@ -238,7 +238,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
       $prefix: get-expression-prefix($operator);
       $value: get-expression-value($condition, $operator);
 
-      @if ($prefix == 'max' and $value <= $no-media-breakpoint-value) or
+      @if ($prefix == 'max' and $value <=$no-media-breakpoint-value) or
         ($prefix == 'min' and $value > $no-media-breakpoint-value)
       {
         @return false;
@@ -293,7 +293,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
   $parsed-dimension: str-trim($parsed-dimension);
   $dimension: 'width';
 
-  @if string.length($parsed-dimension) > 0 {
+  @if string.length($parsed-dimension) >0 {
     $dimension: $parsed-dimension;
   }
 
@@ -384,7 +384,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 /// @return {List} Sliced list
 ///
 @function slice($list, $start: 1, $end: list.length($list)) {
-  @if list.length($list) < 1 or $start > $end {
+  @if list.length($list) < 1 or $start >$end {
     @return ();
   }
 
@@ -449,7 +449,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 
     @if $character == '.' {
       $digits: 1;
-    } @else if $digits == 0 {
+    } @else if $digits ==0 {
       $result: $result * 10 + map.get($numbers, $character);
     } @else {
       $digits: $digits * 10;
@@ -602,7 +602,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 ///  @include media('>=350px', '<tablet', 'retina3x') { }
 ///
 @mixin media($conditions...) {
-  @if ($im-media-support and list.length($conditions) == 0) or
+  @if ($im-media-support and list.length($conditions) ==0) or
     (not $im-media-support and im-intercepts-static-breakpoint($conditions...))
   {
     @content;
@@ -610,6 +610,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     @media #{string.unquote(parse-expression(list.nth($conditions, 1)))} {
       // Recursive call
       $sliced-conditions: slice($conditions, 2);
+
       @include media($sliced-conditions...) {
         @content;
       }

@@ -1,31 +1,64 @@
-// samples below
-
-@mixin heading-1 {
-  font-size: 7.2rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.2rem;
-}
-
-@mixin heading-2 {
-  font-size: 6.4rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.05rem;
-}
-
-@mixin heading-3 {
-  font-size: 5.6rem;
-  font-style: normal;
-  font-weight: 700;
+.text-sm {
+  font-size: 14px;
   line-height: normal;
 }
 
-@mixin heading-4 {
-  font-size: 4rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+.text-base {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text-lg {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.text-xl {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.text-2xl {
+  font-size: 20px;
+  line-height: 30px;
+
+  @include media('<=tablet') {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.text-3xl {
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.text-4xl {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.text-5xl {
+  font-size: 48px;
+  line-height: 48px;
+}
+
+.text-6xl {
+  font-size: 56px;
+  line-height: 70px;
+
+  @include media('<=tablet') {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+.text-7xl {
+  font-size: 80px;
+  line-height: 70px;
+
+  @include media('<=tablet') {
+    font-size: 28px;
+    line-height: 36px;
+  }
 }
