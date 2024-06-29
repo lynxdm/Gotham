@@ -1,7 +1,7 @@
 .btn {
   border: none;
-  font-weight: 500;
-  border-radius: 6px;
+  font-weight: 600;
+  border-radius: 4px;
 
   //Size variants
   &-sm {
@@ -16,12 +16,12 @@
 
   &-lg {
     height: 64px;
-    width: 2729px;
+    width: 272px;
   }
 
   //Color variants
   &-primary {
-    background-color: #000000;
+    background-color: var(--dv-black);
     color: #ffffff;
   }
 

@@ -14,7 +14,8 @@
       border-radius: 16px;
       background-color: #ffffff;
       box-shadow: 0px 5px 4px 7px rgba(157, 143, 143, 0.05);
-      padding: 1.5rem;
+      padding: 1.5rem 2.5rem;
+      margin-bottom: 6rem;
 
       button {
         @include media('<=phone') {
@@ -24,6 +25,28 @@
 
       @include media('<=phone') {
         display: block;
+        margin-bottom: 4.5rem;
+      }
+    }
+
+    .hero-text-container {
+      max-width: 650px;
+      margin: 0 auto;
+
+      h2 {
+        text-align: center;
+      }
+
+      p {
+        font-weight: 200;
+        text-align: center;
+        margin: 1.5rem 0 1.2rem 0;
+        color: #474343;
+        padding: 0 1.8rem;
+
+        @include media('<=tablet') {
+          padding: 0;
+        }
       }
     }
 
