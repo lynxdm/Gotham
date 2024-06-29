@@ -85,6 +85,45 @@
 
   /* END OF BANNER STYLES */
 
+  /* START OF BIG TECH FESTIVAL STYLES */
+
+  .big-tech-festival-container {
+    padding: 6rem 0 8rem;
+
+    .text-content {
+      background-color: #ffffff;
+      max-width: 700px;
+
+      p {
+        color: #323232;
+        font-weight: 200;
+        margin-top: 1.5rem;
+      }
+    }
+
+    .image-gallery {
+      margin-top: 3rem;
+
+      .single-img-container {
+        width: 400px;
+        height: 420px;
+        margin: 0 1rem;
+
+        @include media('<=phone') {
+          height: 320px;
+          width: 320px;
+          margin: 0 0.5rem;
+        }
+      }
+    }
+
+    @include media('<=phone') {
+      padding: 5rem 0;
+    }
+  }
+
+  /* END OF BIG TECH FESTIVAL STYLES */
+
   /* START OF HIGHLIGHT STYLES */
 
   .highlights-container {
@@ -100,31 +139,56 @@
       max-width: 700px;
       margin-top: 1rem;
     }
-  }
 
-  .hightlights-img {
-    margin-top: 4rem;
-    width: 100%;
-    height: 500px;
-    background-image: url('../../../public/images/webp/highlights-cover-img.webp');
-    background-position: center center;
-    background-position: no-repeat;
-    background-size: cover;
-    border-radius: 25px;
-    position: relative;
-
-    @include media('<=tablet') {
-      height: 400px;
+    @include media('<=phone') {
+      padding: 5rem 0 3rem;
     }
 
-    .play-icon {
-      position: absolute;
-      cursor: pointer;
-      height: 100%;
+    .hightlights-img {
+      margin-top: 4rem;
       width: 100%;
-      top: 0;
+      height: 500px;
+      background-image: url('../../../public/images/webp/highlights-cover-img.webp');
+      background-position: center center;
+      background-position: no-repeat;
+      background-size: cover;
+      border-radius: 25px;
+      position: relative;
+
+      @include media('<=tablet') {
+        height: 400px;
+      }
+
+      .play-icon {
+        position: absolute;
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        top: 0;
+      }
     }
   }
 
   /* END OF BANNER STYLES */
+
+  /* START OF CELEBRATION STYLES */
+
+  .celebration-container {
+    padding-top: 7rem;
+    background-color: var(--dv-yellow);
+
+    .celebration-content {
+      margin: 0 auto;
+      max-width: 731px;
+      text-align: center;
+
+      p {
+        font-weight: 200;
+        color: #323232;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  /* END OF CELEBRATION STYLES */
 }
