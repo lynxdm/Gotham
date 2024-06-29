@@ -1,3 +1,4 @@
+import { Footer } from '@/components/shared';
 import { BiggestTechFestival, Celebration, Highlights, HomeBanner } from '@/components/home';
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <BiggestTechFestival />
       <Highlights />
       <Celebration />
+      <Footer />
     </main>
   );
 }
