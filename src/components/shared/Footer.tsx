@@ -4,13 +4,13 @@ import { Button } from './Button';
 const currentYear = new Date().getFullYear();
 
 const socials = [
+  { link: '', title: 'twitter' },
   {
     link: '',
     title: 'facebook',
   },
   { link: '', title: 'instagram' },
   { link: '', title: 'linkedin' },
-  { link: '', title: 'twitter' },
   { link: '', title: 'youtube' },
 ];
 
@@ -47,7 +47,7 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <section className='footer-container'>
+    <section className='footer-wrapper'>
       <div className='container'>
         <div className='footer-main'>
           <div>

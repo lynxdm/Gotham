@@ -87,7 +87,7 @@
 
   /* START OF BIG TECH FESTIVAL STYLES */
 
-  .big-tech-festival-container {
+  .big-tech-festival-wrapper {
     padding: 6rem 0 8rem;
 
     .text-content {
@@ -95,7 +95,7 @@
       max-width: 700px;
 
       p {
-        color: #323232;
+        color: var(--dv-gray);
         font-weight: 200;
         margin-top: 1.5rem;
       }
@@ -126,12 +126,12 @@
 
   /* START OF HIGHLIGHT STYLES */
 
-  .highlights-container {
+  .highlights-wrapper {
     background-color: var(--dv-green);
     padding: 7rem 0 6rem;
 
     p {
-      color: #323232;
+      color: var(--dv-gray);
       font-weight: 300;
     }
 
@@ -173,7 +173,7 @@
 
   /* START OF CELEBRATION STYLES */
 
-  .celebration-container {
+  .celebration-wrapper {
     padding-top: 7rem;
     background-color: var(--dv-yellow);
 
@@ -184,11 +184,80 @@
 
       p {
         font-weight: 200;
-        color: #323232;
+        color: var(--dv-gray);
         margin: 1rem 0;
       }
     }
   }
 
   /* END OF CELEBRATION STYLES */
+
+  /* START OF SUBSCRIPTION STYLES */
+  .subscription-wrapper {
+    background-color: var(--dv-light-yellow);
+    padding-top: 7rem;
+
+    .subscription-content {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+
+      > div {
+        width: 50%;
+      }
+
+      div:nth-of-type(1) {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      div:nth-of-type(2) {
+        height: 695px;
+        border: 1px solid red;
+      }
+
+      .subscription-form-container {
+        p {
+          font-weight: 300;
+          color: var(--dv-gray);
+        }
+
+        form {
+          margin-top: 3rem;
+          display: flex;
+          flex-direction: column;
+          row-gap: 1rem;
+          max-width: 400px;
+
+          button {
+            border-radius: 12px;
+          }
+        }
+
+        @include media('>phone', '<=desktop') {
+          h2 {
+            font-size: 46px;
+            line-height: 56px;
+          }
+        }
+
+        @include media('<=tablet') {
+          flex-direction: column;
+
+          > div {
+            width: 100%;
+            max-width: 480px;
+          }
+
+          div:nth-of-type(2) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  /* END OF SUBSCRIPTION STYLES */
 }

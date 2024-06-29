@@ -78,7 +78,7 @@ export const CountdownTimer = () => {
   const { days, hours, minutes, seconds } = timeLeft;
 
   return (
-    <div className='countdown-container'>
+    <div className='countdown-wrapper'>
       <div>
         <h1 className='text-6xl'>{days}</h1>
         <p>Days</p>

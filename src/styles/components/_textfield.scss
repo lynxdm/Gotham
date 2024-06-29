@@ -1,0 +1,19 @@
+.textfield {
+  padding: 10px 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--dv-black);
+  border: none;
+  height: 56px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #333333;
+    opacity: 0.5;
+    font-weight: 100;
+  }
+}

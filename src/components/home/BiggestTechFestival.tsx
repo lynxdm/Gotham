@@ -10,7 +10,7 @@ const eventImages = [
 
 export const BiggestTechFestival = () => {
   return (
-    <section className='big-tech-festival-container'>
+    <section className='big-tech-festival-wrapper'>
       <div className='container'>
         <div className='text-content'>
           <h2 className='text-5xl'>The Biggest Tech Festival in Nigeria</h2>

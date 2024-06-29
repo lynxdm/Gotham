@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const Highlights = () => {
   return (
-    <section className='highlights-container'>
+    <section className='highlights-wrapper'>
       <div className='container'>
         <p className='text-lg'>Highlights</p>
         <h2 className='text-5xl'>Highlights From DevFest Lagos &apos;23</h2>

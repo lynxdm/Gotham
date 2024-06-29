@@ -2,7 +2,7 @@ import { Button } from '../shared';
 
 export const Celebration = () => {
   return (
-    <section className='celebration-container'>
+    <section className='celebration-wrapper'>
       <div className='container celebration-content'>
         <h2 className='text-5xl text-center'>
           You don&apos;t Want to Miss Out on the 11th Year of DevFest Lagos!
