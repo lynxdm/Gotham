@@ -19,7 +19,7 @@
 
 .centered-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -34,7 +34,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--dv-light-yellow);
+  background: var(--dv-green);
   border-radius: 10px;
 }
 
