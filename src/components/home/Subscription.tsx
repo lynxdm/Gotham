@@ -51,7 +51,20 @@ export const Subscription = () => {
               <Button type='submit' label='Submit'></Button>
             </form>
           </div>
-          <div></div>
+          <div className='event-gallery-container'>
+            <div className='event-img-four'>
+              <Image src='/images/webp/2023-event-img-four.webp' width='280' height='300' alt='' />
+            </div>
+            <div className='event-img-three'>
+              <Image src='/images/webp/2023-event-img-three.webp' width='280' height='300' alt='' />
+            </div>
+            <div className='event-img-two'>
+              <Image src='/images/webp/2023-event-img-two.webp' width='280' height='300' alt='' />
+            </div>
+            <div className='event-img-one'>
+              <Image src='/images/webp/2023-event-img-one.webp' width='280' height='300' alt='' />
+            </div>
+          </div>
         </div>
       </div>
       <div className='arithmetic-container'>

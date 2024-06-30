@@ -55,7 +55,12 @@ export const CountdownTimer = () => {
   const eventDateStr = process.env.NEXT_PUBLIC_EVENT_TIME || '';
   const eventDate = parseDateString(eventDateStr);
 
+  const [isMounted, setIsMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(eventDate));
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -76,6 +81,8 @@ export const CountdownTimer = () => {
   }, [eventDate]);
 
   const { days, hours, minutes, seconds } = timeLeft;
+
+  if (!isMounted) return null;
 
   return (
     <div className='countdown-wrapper'>
