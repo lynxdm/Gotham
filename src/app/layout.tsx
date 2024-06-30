@@ -8,10 +8,10 @@ import '../styles/index.scss';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'DevFest BoilerPlate',
-  description: 'A simple project to help you boostrap DevFest websites',
+  title: 'DevFest',
+  description: 'The Biggest Tech Festival in Nigeria',
   keywords: 'devfest, devfest lagos, coming soon, date, venue',
-  metadataBase: new URL('https://devfest-boilerplate.vercel.app/'), // synonymous to the base URL
+  metadataBase: new URL('https://vercel.com/timmy471s-projects/devfest-coming-soon'), // synonymous to the base URL
 };
 
 const GeneralSans = localFont({
