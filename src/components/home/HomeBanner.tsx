@@ -28,15 +28,7 @@ export const HomeBanner = () => {
         </div>
         {process.env.NEXT_PUBLIC_EVENT_TIME ? <CountdownTimer /> : ''}
       </div>
-      <div className='arithmetic-container'>
-        <Image
-          src={'/images/svg/arithmetic.svg'}
-          alt='DevFest Lagos'
-          layout='responsive'
-          width={700}
-          height={475}
-        />
-      </div>
+      <div className='arithmetic-container'></div>
     </section>
   );
 };
