@@ -8,7 +8,7 @@ import '../styles/index.scss';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'DevFest',
+  title: 'DevFest 2024 | Coming Soon',
   description: 'The Biggest Tech Festival in Nigeria',
   keywords: 'devfest, devfest lagos, coming soon, date, venue',
   metadataBase: new URL('https://vercel.com/timmy471s-projects/devfest-coming-soon'), // synonymous to the base URL

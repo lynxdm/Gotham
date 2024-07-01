@@ -9,8 +9,6 @@ export const highlightsVideoUrl = 'https://www.youtube.com/embed/22PZkwJpu9k';
 export const Highlights = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  console.log(isModalOpen);
-
   return (
     <section className='highlights-wrapper'>
       <div className='container'>

@@ -89,18 +89,16 @@ export const Footer = () => {
             </div>
           </div>
           <div>
-            <div>
-              <div className='footer-logo'>
-                <Image
-                  src={'/images/svg/devfest-logo.svg'}
-                  alt='DevFest Lagos Logo'
-                  width={300}
-                  height={94}
-                  layout='responsive'
-                />
-              </div>
-              <Button label='Get Early Bird Tickets' size='lg' />
+            <div className='footer-logo'>
+              <Image
+                src={'/images/svg/devfest-logo.svg'}
+                alt='DevFest Lagos Logo'
+                width={300}
+                height={94}
+                layout='responsive'
+              />
             </div>
+            <Button label='Get Early Bird Tickets' size='lg' />
 
             <div className='footer-links'>
               <ul>

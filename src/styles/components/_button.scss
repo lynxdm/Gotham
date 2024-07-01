@@ -2,24 +2,22 @@
   border: none;
   font-weight: 600;
   border-radius: 4px;
+  width: fit-content;
   cursor: pointer;
 
   @include buttonTransition();
 
   //Size variants
   &-sm {
-    height: 39px;
-    width: 169px;
+    padding: 12px 54px;
   }
 
   &-md {
-    height: 56px;
-    width: 173px;
+    padding: 20px 65px;
   }
 
   &-lg {
-    height: 64px;
-    width: 272px;
+    padding: 23px 54px;
     font-size: 16px;
   }
 

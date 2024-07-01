@@ -53,16 +53,36 @@ export const Subscription = () => {
           </div>
           <div className='event-gallery-container'>
             <div className='event-img-four'>
-              <Image src='/images/webp/2023-event-img-four.webp' width='280' height='300' alt='' />
+              <Image
+                src='/images/webp/2023-event-img-four.webp'
+                width='280'
+                height='300'
+                alt='Event Image - Woman giving speech'
+              />
             </div>
             <div className='event-img-three'>
-              <Image src='/images/webp/2023-event-img-three.webp' width='280' height='300' alt='' />
+              <Image
+                src='/images/webp/2023-event-img-three.webp'
+                width='280'
+                height='300'
+                alt='Event Image - Man addressing question'
+              />
             </div>
             <div className='event-img-two'>
-              <Image src='/images/webp/2023-event-img-two.webp' width='280' height='300' alt='' />
+              <Image
+                src='/images/webp/2023-event-img-two.webp'
+                width='280'
+                height='300'
+                alt='Event Image - Man asking question'
+              />
             </div>
             <div className='event-img-one'>
-              <Image src='/images/webp/2023-event-img-one.webp' width='280' height='300' alt='' />
+              <Image
+                src='/images/webp/2023-event-img-one.webp'
+                width='280'
+                height='300'
+                alt='Event Image - Group picture'
+              />
             </div>
           </div>
         </div>
