@@ -191,7 +191,7 @@
       margin-top: 7rem;
 
       @include media('<=tablet') {
-        padding-left: 3rem;
+        padding-left: 1rem;
         margin-top: 10rem;
       }
     }
@@ -258,6 +258,7 @@
 
         .celebration-image-one {
           bottom: -0.6rem;
+          right: -0.5rem;
         }
 
         .celebration-image-two {
@@ -271,8 +272,13 @@
         }
 
         .celebration-image-five {
-          right: -0.5rem;
+          right: -2rem;
+          top: 0.6rem;
         }
+      }
+
+      @media only screen and (max-width: 400px) {
+        max-width: 240px;
       }
     }
   }
