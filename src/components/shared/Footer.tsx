@@ -28,15 +28,16 @@ const footerLinks = [
     title: 'Ticket FAQ',
   },
   {
-    link: '',
+    link: 'https://gdg.community.dev/gdg-lagos/',
+
     title: 'Join the community',
   },
   {
-    link: '',
+    link: ' https://policies.google.com/privacy',
     title: 'Community Guidelines',
   },
   {
-    link: '',
+    link: 'https://policies.google.com/privacy',
     title: 'Privacy Policy',
   },
   {

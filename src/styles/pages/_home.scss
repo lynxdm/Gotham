@@ -163,7 +163,23 @@
         height: 100%;
         width: 100%;
         top: 0;
+
+        img {
+          &:hover {
+            transform: translateY(-1.5px);
+            @include buttonTransition();
+          }
+        }
       }
+    }
+
+    .video-iframe-wrapper {
+      height: 30rem;
+    }
+
+    iframe {
+      border-radius: 12px;
+      height: 100%;
     }
   }
 
