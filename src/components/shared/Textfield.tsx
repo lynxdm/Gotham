@@ -27,9 +27,12 @@ export const Textfield: React.FC<TextfieldProps> = ({
       id={id}
       name={id}
       value={value}
+      tabIndex={0}
       placeholder={placeholder}
       onChange={handleChange}
       required={required}
+      aria-required={required}
+      aria-label={placeholder} //Consider label || placeholder when there is a label prop
     />
   );
 };

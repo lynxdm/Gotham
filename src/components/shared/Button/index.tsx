@@ -25,7 +25,7 @@ const buttonVariants = cva(`btn`, {
   },
 });
 
-type buttonState = 'primary' | 'secondary';
+type ButtonState = 'primary' | 'secondary';
 interface ButtonProps
   extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'disabled'>,
     VariantProps<typeof buttonVariants> {
@@ -37,21 +37,34 @@ interface ButtonProps
   fullWidth?: boolean;
   type?: 'button' | 'submit';
   size?: 'sm' | 'md' | 'lg';
-  state?: buttonState;
+  state?: ButtonState;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { label = 'Button', onClick, className, isLoading, disabled, type, state, size, fullWidth },
+    {
+      label = 'Button',
+      onClick,
+      className,
+      isLoading = false,
+      disabled = false,
+      type,
+      state,
+      size,
+      fullWidth,
+    },
     ref,
   ) => {
     return (
       <button
         className={classNames(buttonVariants({ state, size, fullWidth, className }))}
         ref={ref}
-        disabled={disabled}
-        type={isLoading ? 'button' : type === 'submit' ? 'submit' : 'button'}
+        disabled={disabled || isLoading}
+        type={type === 'submit' ? 'submit' : 'button'}
         onClick={onClick}
+        aria-disabled={disabled || isLoading}
+        aria-busy={isLoading}
+        aria-live='polite'
       >
         {label}
       </button>

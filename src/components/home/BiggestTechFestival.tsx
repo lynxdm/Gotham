@@ -10,23 +10,25 @@ const eventImages = [
 
 export const BiggestTechFestival = () => {
   return (
-    <section className='big-tech-festival-wrapper'>
+    <section className='big-tech-festival-wrapper' aria-labelledby='festival-heading'>
       <div className='container'>
         <div className='text-content'>
-          <h2 className='text-5xl'>The Biggest Tech Festival in Nigeria</h2>
+          <h2 id='festival-heading' className='text-5xl'>
+            The Biggest Tech Festival in Nigeria
+          </h2>
           <p className='text-xl'>
             We&apos;re back! and it&apos;s about to be the biggest and most unforgettable tech
             festival yet. Get ready for DevFest Lagos.
           </p>
         </div>
       </div>
-      <div className='image-gallery'>
-        <Marquee pauseOnHover pauseOnClick speed={20}>
+      <div className='image-gallery' aria-label='Scrolling images of past events'>
+        <Marquee pauseOnHover pauseOnClick speed={20} aria-label='Scrolling images of past events'>
           {eventImages.map((image, key) => (
             <div className='single-img-container' key={key}>
               <Image
                 src={`/images/webp/${image}`}
-                alt=''
+                alt={'Festival Image'}
                 height={320}
                 width={320}
                 layout='responsive'

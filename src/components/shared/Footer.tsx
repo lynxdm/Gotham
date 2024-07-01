@@ -33,11 +33,11 @@ const footerLinks = [
   },
   {
     link: '',
-    title: 'Commuinty Guidelines',
+    title: 'Community Guidelines',
   },
   {
     link: '',
-    title: 'Privacy policy',
+    title: 'Privacy Policy',
   },
   {
     link: '',
@@ -47,7 +47,7 @@ const footerLinks = [
 
 export const Footer = () => {
   return (
-    <section className='footer-wrapper'>
+    <footer className='footer-wrapper'>
       <div className='container'>
         <div className='footer-main'>
           <div>
@@ -58,21 +58,27 @@ export const Footer = () => {
               This event is organized by <span>Google Developer Group Lagos (GDG Lagos).</span>{' '}
               Devfest Lagos is an annual conference for tech enthusiasts ranging from novice to
               leaders in the industry. The event features sessions on Mental Health, Mobile, Design,
-              Web, Cloud, DevOps, Machine Learning, AR/VR and many more.{' '}
+              Web, Cloud, DevOps, Machine Learning, AR/VR, and many more.{' '}
             </p>
             <p className='text-base'>
               This year, Devfest Lagos will take place between 15th and 16th November 2024, at
-              Landmark Events center, Lagos. The sessions are in parallel, register the sessions
+              Landmark Events Center, Lagos. The sessions are in parallel; register for sessions
               that fit your profile or things you&apos;d like to learn about.
             </p>
             <div className='socials'>
               <p>Follow us on:</p>
               <div>
                 {socials.map((social, key) => (
-                  <a href={social.link} target='_blank' rel='noopener noreferrer' key={key}>
+                  <a
+                    href={social.link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    key={key}
+                    aria-label={`Follow us on ${social.title}`}
+                  >
                     <Image
                       src={`/images/icons/${social.title}-icon.svg`}
-                      alt={social.title}
+                      alt={`${social.title}`}
                       width={30}
                       height={20}
                     />
@@ -86,13 +92,12 @@ export const Footer = () => {
               <div className='footer-logo'>
                 <Image
                   src={'/images/svg/devfest-logo.svg'}
-                  alt='DevFestLagos'
+                  alt='DevFest Lagos Logo'
                   width={300}
                   height={94}
                   layout='responsive'
                 />
               </div>
-
               <Button label='Get Early Bird Tickets' size='lg' />
             </div>
 
@@ -100,7 +105,7 @@ export const Footer = () => {
               <ul>
                 {footerLinks.slice(0, 3).map(({ link, title }, key) => (
                   <li className='text-sm' key={key}>
-                    <a href={link} target='_blank' rel='noopener noreferrer'>
+                    <a href={link} target='_blank' rel='noopener noreferrer' aria-label={title}>
                       {title}
                     </a>
                   </li>
@@ -109,7 +114,7 @@ export const Footer = () => {
               <ul>
                 {footerLinks.slice(3, 5).map(({ link, title }, key) => (
                   <li className='text-sm' key={key}>
-                    <a href={link} target='_blank' rel='noopener noreferrer'>
+                    <a href={link} target='_blank' rel='noopener noreferrer' aria-label={title}>
                       {title}
                     </a>
                   </li>
@@ -118,7 +123,7 @@ export const Footer = () => {
               <ul>
                 {footerLinks.slice(5, 7).map(({ link, title }, key) => (
                   <li className='text-sm' key={key}>
-                    <a href={link} target='_blank' rel='noopener noreferrer'>
+                    <a href={link} target='_blank' rel='noopener noreferrer' aria-label={title}>
                       {title}
                     </a>
                   </li>
@@ -127,8 +132,8 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <p className='footer-copyright'>© {currentYear} Devfest Lagos. All Rights Reserved. </p>
+        <p className='footer-copyright'>© {currentYear} Devfest Lagos. All Rights Reserved.</p>
       </div>
-    </section>
+    </footer>
   );
 };

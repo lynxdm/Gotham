@@ -43,7 +43,7 @@ export const Subscription = () => {
               <Textfield
                 id='email'
                 type='email'
-                placeholder='Email Adress'
+                placeholder='Email Address'
                 value={email}
                 handleChange={handleChange}
                 required
