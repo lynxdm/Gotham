@@ -56,9 +56,9 @@ export const Footer = () => {
             </div>
             <p className='text-base'>
               This event is organized by <span>Google Developer Group Lagos (GDG Lagos).</span>{' '}
-              Devfest Lagos is annual conference for tech enthusiasts ranging from novice to leaders
-              in the industry. The event feature sessions on Mental Health, Mobile, Design, Web,
-              Cloud, DevOps, Machine Learning, AR/VR and many more.{' '}
+              Devfest Lagos is an annual conference for tech enthusiasts ranging from novice to
+              leaders in the industry. The event features sessions on Mental Health, Mobile, Design,
+              Web, Cloud, DevOps, Machine Learning, AR/VR and many more.{' '}
             </p>
             <p className='text-base'>
               This year, Devfest Lagos will take place between 15th and 16th November 2024, at
