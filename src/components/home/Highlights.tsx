@@ -17,13 +17,16 @@ export const Highlights = () => {
         </p>
         <h2 className='text-5xl'>Highlights From DevFest Lagos &apos;23</h2>
         <div className='highlights-img' role='img' aria-label="DevFest Lagos '23 Highlight Video">
-          <div className='play-icon centered-flex' role='presentation'>
+          <div
+            className='play-icon centered-flex'
+            role='presentation'
+            onClick={() => setIsModalOpen(true)}
+          >
             <Image
               src='/images/svg/play-icon.svg'
               alt='Play Video Call to action'
               width={60}
               height={60}
-              onClick={() => setIsModalOpen(true)}
             />
           </div>
         </div>

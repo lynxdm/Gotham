@@ -174,7 +174,11 @@
     }
 
     .video-iframe-wrapper {
-      height: 30rem;
+      height: 35rem;
+
+      @include media('<=phone') {
+        height: 25rem;
+      }
     }
 
     iframe {
