@@ -1,0 +1,51 @@
+.btn {
+  border: none;
+  font-weight: 600;
+  border-radius: 4px;
+  width: fit-content;
+  cursor: pointer;
+
+  @include buttonTransition();
+
+  //Size variants
+  &-sm {
+    padding: 12px 54px;
+  }
+
+  &-md {
+    padding: 20px 65px;
+  }
+
+  &-lg {
+    padding: 23px 54px;
+    font-size: 16px;
+  }
+
+  //Color variants
+  &-primary {
+    background-color: var(--dv-black);
+    color: #ffffff;
+  }
+
+  // &-primary {
+  //     background-color: rgb(var(--foreground-rgb));
+  //     color: rgb(var(--background-rgb))
+  // }
+
+  // &-secondary {
+  //     background-color: rgb(var(--background-rgb));
+  //     color: rgb(var(--foreground-rgb))
+  // }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transform: translateY(-1.5px);
+  }
+}

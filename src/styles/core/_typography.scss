@@ -1,31 +1,99 @@
-// samples below
-
-@mixin heading-1 {
-  font-size: 7.2rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.2rem;
+@mixin typography($font-size, $line-height, $font-weight) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
 }
 
-@mixin heading-2 {
-  font-size: 6.4rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.05rem;
-}
-
-@mixin heading-3 {
-  font-size: 5.6rem;
-  font-style: normal;
-  font-weight: 700;
+@mixin text-sm {
+  font-size: 14px;
   line-height: normal;
 }
 
-@mixin heading-4 {
-  font-size: 4rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+@mixin text-base {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin text-lg {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@mixin text-xl {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+@mixin text-2xl {
+  font-size: 28px;
+  line-height: 36px;
+}
+
+@mixin text-3xl {
+  font-size: 40px;
+  line-height: 56px;
+}
+
+@mixin text-4xl {
+  font-size: 48px;
+  line-height: 48px;
+}
+
+@mixin text-5xl {
+  font-size: 56px;
+  line-height: 70px;
+  font-weight: 600;
+}
+
+@mixin text-6xl {
+  font-size: 80px;
+  line-height: 90px;
+}
+
+.text-sm {
+  @include text-sm();
+}
+
+.text-base {
+  @include text-base();
+}
+
+.text-lg {
+  @include text-lg();
+}
+
+.text-xl {
+  @include text-xl();
+
+  @include media('<=tablet') {
+    @include text-base();
+  }
+}
+
+.text-2xl {
+  @include text-2xl();
+}
+
+.text-3xl {
+  @include text-3xl();
+}
+
+.text-4xl {
+  @include text-4xl();
+}
+
+.text-5xl {
+  @include text-5xl();
+
+  @include media('<=tablet') {
+    @include text-3xl();
+  }
+}
+
+.text-6xl {
+  @include text-6xl();
+
+  @include media('<=tablet') {
+    @include text-2xl();
+  }
 }
