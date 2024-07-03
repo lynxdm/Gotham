@@ -32,7 +32,10 @@ export const Highlights = () => {
         </div>
       </div>
       <Modal
+        size='lg'
         isOpen={isModalOpen}
+        showCloseIcon={false}
+        className='highlights-modal'
         onClose={() => {
           setIsModalOpen(false);
         }}

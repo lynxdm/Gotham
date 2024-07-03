@@ -7,3 +7,15 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+@mixin typography($font-size, $font-weight: null, $line-height: null) {
+  font-size: $font-size;
+
+  @if $font-weight !=null {
+    font-weight: $font-weight;
+  }
+
+  @if $line-height !=null {
+    line-height: $line-height;
+  }
+}

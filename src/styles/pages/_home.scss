@@ -173,6 +173,10 @@
       }
     }
 
+    .highlights-modal {
+      padding: 0;
+    }
+
     .video-iframe-wrapper {
       height: 35rem;
 
@@ -425,6 +429,19 @@
 
     @include media('<=tablet') {
       padding-top: 10rem;
+    }
+  }
+
+  .success-modal {
+    h5 {
+      @include typography(22px);
+      margin: 1rem 0;
+    }
+
+    p {
+      margin: 0 auto 2rem;
+      max-width: 412px;
+      font-weight: 300;
     }
   }
 
