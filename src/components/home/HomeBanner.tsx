@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Button } from '../shared';
 import { CountdownTimer } from './CountdownTimer';
 
-export const HomeBanner = () => {
+export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () => void }) => {
   return (
     <section className='home-banner'>
       <div className='container'>
@@ -13,7 +13,7 @@ export const HomeBanner = () => {
             height={36}
             width={111}
           />
-          <Button label='Notify me' size='sm' />
+          <Button label='Notify me' size='sm' onClick={ScrollToSubscription} />
         </div>
         <div className='hero-text-container'>
           <div className='hashtag-container'>
