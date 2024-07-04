@@ -4,27 +4,27 @@ import { Button } from './Button';
 const currentYear = new Date().getFullYear();
 
 const socials = [
-  { link: '', title: 'twitter' },
+  { link: '#', title: 'twitter' },
   {
-    link: '',
+    link: '#',
     title: 'facebook',
   },
-  { link: '', title: 'instagram' },
-  { link: '', title: 'linkedin' },
-  { link: '', title: 'youtube' },
+  { link: '#', title: 'instagram' },
+  { link: '#', title: 'linkedin' },
+  { link: '#', title: 'youtube' },
 ];
 
 const footerLinks = [
   {
-    link: '',
+    link: '#',
     title: 'Claim Ticket',
   },
   {
-    link: '',
+    link: '#',
     title: 'Upgrade Ticket',
   },
   {
-    link: '',
+    link: '#',
     title: 'Ticket FAQ',
   },
   {

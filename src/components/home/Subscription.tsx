@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, LegacyRef } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Textfield, Modal } from '../shared';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -12,7 +12,7 @@ interface subscriptionFormData {
   email: string;
 }
 
-export const Subscription = () => {
+export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<HTMLElement> }) => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState<boolean>(false);
 
   const {
@@ -33,7 +33,7 @@ export const Subscription = () => {
 
   return (
     <>
-      <section className='subscription-wrapper'>
+      <section className='subscription-wrapper' ref={subscriptionRef}>
         <div className='container'>
           <div className='subscription-content'>
             <div className='subscription-form-container'>
