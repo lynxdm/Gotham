@@ -1,14 +1,26 @@
 'use client';
 
+import Image from 'next/image';
+import { classNames } from '@/utils/classNames';
 import React, { useEffect, useRef } from 'react';
 
 interface ModalProps {
   isOpen: boolean;
+  size?: 'sm' | 'md' | 'lg';
+  showCloseIcon?: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  className?: string;
 }
 
-export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+export const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  size = 'md',
+  showCloseIcon = true,
+  onClose,
+  children,
+  className,
+}) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const previousFocusedElement = useRef<HTMLElement | null>(null);
 
@@ -58,14 +70,28 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   return (
     <div className='overlay'>
       <div
-        className='modal'
+        className={classNames('modal', `modal-${size} ${className}`)}
         role='dialog'
         aria-modal='true'
         aria-labelledby='modal-title'
         ref={modalRef}
         tabIndex={-1}
       >
-        <div className='modal-content'>{children}</div>
+        <div className='modal-content'>
+          {showCloseIcon && (
+            <div className='close-icon-wrapper'>
+              <Image
+                src='/images/icons/close-icon.png'
+                alt='Close Modal'
+                width='30'
+                height='30'
+                onClick={onClose}
+              />
+            </div>
+          )}
+
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -1,38 +1,49 @@
 import { classNames } from '@/utils/classNames';
+import type { FieldError } from 'react-hook-form';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface TextfieldProps {
   id: string;
-  value: string;
   className?: string;
   type?: string;
+  error?: FieldError | string;
   placeholder?: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
+  [key: string]: any;
 }
 
 export const Textfield: React.FC<TextfieldProps> = ({
   id,
-  value,
   type = 'text',
   placeholder,
   className,
-  handleChange,
+  register,
+  error,
   required = false,
+  ...rest
 }) => {
   const textFieldClassName = classNames('textfield', className);
+  const errorId = `${id}-error`;
+
   return (
-    <input
-      type={type}
-      className={textFieldClassName}
-      id={id}
-      name={id}
-      value={value}
-      tabIndex={0}
-      placeholder={placeholder}
-      onChange={handleChange}
-      required={required}
-      aria-required={required}
-      aria-label={placeholder} //Consider label || placeholder when there is a label prop
-    />
+    <div className='textfield-wrapper'>
+      <input
+        type={type}
+        className={textFieldClassName}
+        id={id}
+        name={id}
+        tabIndex={0}
+        placeholder={placeholder}
+        // required={required}
+        {...(register ? register(id) : {})}
+        aria-required={required}
+        aria-label={placeholder}
+        aria-invalid={!!error}
+        aria-describedby={error ? errorId : undefined}
+        {...rest}
+        {...rest}
+      />
+      {error && <p className='text-sm text-error'>{error as string}</p>}
+    </div>
   );
 };
