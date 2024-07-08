@@ -16,19 +16,19 @@ export const Celebration = () => {
       <div className='celebration-image-gallery-wrapper'>
         <div className='celebration-image-gallery'>
           <div className='celebration-image-one'>
-            <Image src='/images/png/free-swag-white.png' layout='fill' alt='Free swag' />
+            <Image src='/images/png/free-swag-white.png' fill alt='Free swag' />
           </div>
           <div className='celebration-image-two'>
-            <Image src='/images/png/community.png' layout='fill' alt='Community engagement' />
+            <Image src='/images/png/community.png' fill alt='Community engagement' />
           </div>
           <div className='celebration-image-three'>
-            <Image src='/images/png/amazing-sessions.png' layout='fill' alt='Amazing sessions' />
+            <Image src='/images/png/amazing-sessions.png' fill alt='Amazing sessions' />
           </div>
           <div className='celebration-image-four'>
-            <Image src='/images/png/free-swag-white.png' layout='fill' alt='Free swag' />
+            <Image src='/images/png/free-swag-white.png' fill alt='Free swag' />
           </div>
           <div className='celebration-image-five'>
-            <Image src='/images/png/fun-activities.png' layout='fill' alt='Fun activities' />
+            <Image src='/images/png/fun-activities.png' fill alt='Fun activities' />
           </div>
         </div>
       </div>

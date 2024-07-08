@@ -23,7 +23,7 @@ export const BiggestTechFestival = () => {
         </div>
       </div>
       <div className='image-gallery' aria-label='Scrolling images of past events'>
-        <Marquee pauseOnHover pauseOnClick speed={20} aria-label='Scrolling images of past events'>
+        <Marquee speed={20} aria-label='Scrolling images of past events'>
           {eventImages.map((image, key) => (
             <div className='single-img-container' key={key}>
               <Image
@@ -31,7 +31,8 @@ export const BiggestTechFestival = () => {
                 alt={'Festival Image'}
                 height={320}
                 width={320}
-                layout='responsive'
+                style={{ width: '100%', height: 'auto' }}
+                // layout='responsive'
               />
             </div>
           ))}
