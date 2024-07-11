@@ -6,12 +6,12 @@ const currentYear = new Date().getFullYear();
 const socials = [
   { link: 'https://x.com/gdglagos', title: 'twitter' },
   {
-    link: '#',
+    link: 'https://www.linkedin.com/company/gdg-lagos',
     title: 'facebook',
   },
   { link: 'https://www.instagram.com/gdglagos', title: 'instagram' },
-  { link: '#', title: 'linkedin' },
-  { link: '#', title: 'youtube' },
+  { link: 'https://www.linkedin.com/company/gdg-lagos', title: 'linkedin' },
+  { link: 'https://www.youtube.com/@GDGLagos', title: 'youtube' },
 ];
 
 const footerLinks = [
@@ -24,7 +24,7 @@ const footerLinks = [
     title: 'Contact Us',
   },
   {
-    link: 'https://policies.google.com/privacy',
+    link: 'https://developers.google.com/community-guidelines',
     title: 'Community Guidelines',
   },
   {
