@@ -4,45 +4,36 @@ import { Button } from './Button';
 const currentYear = new Date().getFullYear();
 
 const socials = [
-  { link: '#', title: 'twitter' },
+  { link: 'https://x.com/gdglagos', title: 'twitter' },
   {
-    link: '#',
+    link: 'https://www.linkedin.com/company/gdg-lagos',
     title: 'facebook',
   },
-  { link: '#', title: 'instagram' },
-  { link: '#', title: 'linkedin' },
-  { link: '#', title: 'youtube' },
+  { link: 'https://www.instagram.com/gdglagos', title: 'instagram' },
+  { link: 'https://www.linkedin.com/company/gdg-lagos', title: 'linkedin' },
+  { link: 'https://www.youtube.com/@GDGLagos', title: 'youtube' },
 ];
 
 const footerLinks = [
-  {
-    link: '#',
-    title: 'Claim Ticket',
-  },
-  {
-    link: '#',
-    title: 'Upgrade Ticket',
-  },
-  {
-    link: '#',
-    title: 'Ticket FAQ',
-  },
-  {
-    link: 'https://gdg.community.dev/gdg-lagos/',
-
-    title: 'Join the community',
-  },
-  {
-    link: ' https://policies.google.com/privacy',
-    title: 'Community Guidelines',
-  },
   {
     link: 'https://policies.google.com/privacy',
     title: 'Privacy Policy',
   },
   {
-    link: '',
+    link: 'mailto:team@gdglagos.com',
     title: 'Contact Us',
+  },
+  {
+    link: 'https://developers.google.com/community-guidelines',
+    title: 'Community Guidelines',
+  },
+  {
+    link: 'https://gdg.community.dev/gdg-lagos/',
+    title: 'Join the community',
+  },
+  {
+    link: '#',
+    title: 'Ticket FAQ',
   },
 ];
 
@@ -95,14 +86,14 @@ export const Footer = () => {
                 alt='DevFest Lagos Logo'
                 width={300}
                 height={94}
-                layout='responsive'
+                style={{ width: '100%', height: 'auto' }}
               />
             </div>
             <Button label='Get Early Bird Tickets' size='lg' />
 
             <div className='footer-links'>
               <ul>
-                {footerLinks.slice(0, 3).map(({ link, title }, key) => (
+                {footerLinks.slice(0, 2).map(({ link, title }, key) => (
                   <li className='text-sm' key={key}>
                     <a href={link} target='_blank' rel='noopener noreferrer' aria-label={title}>
                       {title}
@@ -111,7 +102,7 @@ export const Footer = () => {
                 ))}
               </ul>
               <ul>
-                {footerLinks.slice(3, 5).map(({ link, title }, key) => (
+                {footerLinks.slice(2, 4).map(({ link, title }, key) => (
                   <li className='text-sm' key={key}>
                     <a href={link} target='_blank' rel='noopener noreferrer' aria-label={title}>
                       {title}
@@ -120,7 +111,7 @@ export const Footer = () => {
                 ))}
               </ul>
               <ul>
-                {footerLinks.slice(5, 7).map(({ link, title }, key) => (
+                {footerLinks.slice(4, 6).map(({ link, title }, key) => (
                   <li className='text-sm' key={key}>
                     <a href={link} target='_blank' rel='noopener noreferrer' aria-label={title}>
                       {title}

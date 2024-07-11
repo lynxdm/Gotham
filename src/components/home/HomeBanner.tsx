@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '../shared';
 import { CountdownTimer } from './CountdownTimer';
@@ -7,12 +9,15 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
     <section className='home-banner'>
       <div className='container'>
         <div className='notify-block'>
-          <Image
-            src='/images/svg/devfest-logo.svg'
-            alt='DevFest Lagos Logo'
-            height={36}
-            width={111}
-          />
+          <div>
+            <Image
+              src='/images/svg/devfest-logo.svg'
+              alt='DevFest Lagos Logo'
+              height={36}
+              width={111}
+            />
+          </div>
+
           <Button label='Notify me' size='sm' onClick={ScrollToSubscription} />
         </div>
         <div className='hero-text-container'>
@@ -23,6 +28,7 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
             <Image src='/images/svg/asterik.svg' alt='Asterisk' height={40} width={40} />
           </div>
           <h2 className='text-5xl'>DevFest Lagos is Back, Bigger and Better</h2>
+
           <p className='text-xl'>
             We&apos;re back! and it&apos;s about to be the biggest and most unforgettable tech
             festival yet. Get ready for DevFest Lagos 2024.

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Modal } from '../shared';
 
-export const highlightsVideoUrl = 'https://www.youtube.com/embed/22PZkwJpu9k';
+export const highlightsVideoUrl = 'https://www.youtube.com/embed/_estn5TK3tQ';
 
 export const Highlights = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
