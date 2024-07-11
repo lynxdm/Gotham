@@ -6,7 +6,7 @@ const currentYear = new Date().getFullYear();
 const socials = [
   { link: 'https://x.com/gdglagos', title: 'twitter' },
   {
-    link: 'https://www.linkedin.com/company/gdg-lagos',
+    link: 'https://m.facebook.com/100075612535619',
     title: 'facebook',
   },
   { link: 'https://www.instagram.com/gdglagos', title: 'instagram' },
