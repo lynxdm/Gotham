@@ -29,9 +29,9 @@ export const BiggestTechFestival = () => {
               <Image
                 src={`/images/webp/${image}`}
                 alt={'Festival Image'}
-                height={320}
+                height={300}
                 width={320}
-                style={{ width: '100%', height: 'auto' }}
+                style={{ width: '100%', height: '100%' }}
                 // layout='responsive'
               />
             </div>
