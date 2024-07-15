@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import {
   highlightsIntroHeader,
   highlightsHeaderAnimation,
+  highlightsVideoBgAnimation,
 } from '@/utils/animations/homeAnimations';
 
 export const highlightsVideoUrl = 'https://www.youtube.com/embed/_estn5TK3tQ';
@@ -14,11 +15,14 @@ export const highlightsVideoUrl = 'https://www.youtube.com/embed/_estn5TK3tQ';
 export const Highlights = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+  const highlightsVideoBgRef = useRef<HTMLDivElement>(null);
   const highlightsHeaderRef = useRef<HTMLHeadingElement>(null);
   const highlightsIntroHeaderRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const highlightsHeader = SplitType.create('#highlightsHeader');
+
+    highlightsVideoBgAnimation(highlightsVideoBgRef);
     highlightsHeaderAnimation(highlightsHeader, highlightsHeaderRef);
     highlightsIntroHeader(highlightsIntroHeaderRef);
 
@@ -36,7 +40,12 @@ export const Highlights = () => {
         <h2 className='text-5xl' id='highlightsHeader' ref={highlightsHeaderRef}>
           Highlights From DevFest Lagos &apos;23
         </h2>
-        <div className='highlights-img' role='img' aria-label="DevFest Lagos '23 Highlight Video">
+        <div
+          className='highlights-img'
+          role='img'
+          aria-label="DevFest Lagos '23 Highlight Video"
+          ref={highlightsVideoBgRef}
+        >
           <div
             className='play-icon centered-flex'
             role='presentation'

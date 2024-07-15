@@ -184,22 +184,21 @@ export const highlightsHeaderAnimation = (
       },
     );
   }
+};
 
-  // if (bannerHeaderText) {
-  //     gsap.fromTo(
-  //       bannerHeaderText.lines,
-  //       { opacity: 0, x: -32 },
-  //       {
-  //         opacity: 1,
-  //         x: 0,
-  //         stagger: 0.5,
-  //         duration: 1,
-  //         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-  //         delay: 0.2,
-  //         scrollTrigger: {
-  //           trigger: biggestTechHeaderRef.current,
-  //         },
-  //       },
-  //     );
-  //   }
+export const highlightsVideoBgAnimation = (highlightsVideoBgRef: RefObject<HTMLDivElement>) => {
+  gsap.fromTo(
+    highlightsVideoBgRef.current,
+    { opacity: 0, scale: 1.1 },
+    {
+      opacity: 1,
+      duration: 0.3,
+      delay: 2,
+      scale: 1,
+      ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+      scrollTrigger: {
+        trigger: highlightsVideoBgRef.current,
+      },
+    },
+  );
 };
