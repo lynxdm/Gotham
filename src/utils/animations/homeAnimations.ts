@@ -33,28 +33,35 @@ export const headerTextAnimation = (
       {
         opacity: 1,
         y: 0,
-        stagger: 0.2,
+        stagger: 0.4,
         duration: 1,
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-        delay: 0.1,
+        delay: 0.2,
         scrollTrigger: {
           trigger: bannerHeaderTextRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
         },
       },
     );
   }
 };
 
-export const bannerHeaderSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivElement>) => {
+export const headerSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivElement>) => {
   if (bannerSubTextRef.current) {
     gsap.fromTo(
       bannerSubTextRef.current,
       { opacity: 0 },
       {
         opacity: 1,
-        duration: 1.5,
+        duration: 1,
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
         delay: 0.2,
+        scrollTrigger: {
+          trigger: bannerSubTextRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
       },
     );
   }
@@ -97,6 +104,8 @@ export const biggestTextSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivE
         delay: 0.2,
         scrollTrigger: {
           trigger: bannerSubTextRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
         },
       },
     );
@@ -189,11 +198,11 @@ export const highlightsHeaderAnimation = (
 export const highlightsVideoBgAnimation = (highlightsVideoBgRef: RefObject<HTMLDivElement>) => {
   gsap.fromTo(
     highlightsVideoBgRef.current,
-    { opacity: 0, scale: 1.1 },
+    { opacity: 0, scale: 0.9 },
     {
       opacity: 1,
-      duration: 0.3,
-      delay: 2,
+      duration: 0.7,
+      delay: 0.7,
       scale: 1,
       ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
       scrollTrigger: {
@@ -201,4 +210,85 @@ export const highlightsVideoBgAnimation = (highlightsVideoBgRef: RefObject<HTMLD
       },
     },
   );
+};
+
+//CELEBRATION ANIMATION
+
+//In case of edits for individual items
+export const celebrationHeaderTextAnimation = (
+  headerText: { lines: HTMLElement[] | null },
+  headerTextRef: RefObject<HTMLDivElement>,
+) => headerTextAnimation(headerText, headerTextRef);
+
+export const celebrationSubTextAnimation = (subTextRef: RefObject<HTMLDivElement>) =>
+  headerSubTextAnimation(subTextRef);
+
+//SUBSCRIPTION SECTION ANIMATION
+
+export const subscriptionFormContainerAnimation = (
+  subscriptionFormContainerRef: RefObject<HTMLDivElement>,
+) => {
+  if (subscriptionFormContainerRef.current) {
+    gsap.fromTo(
+      subscriptionFormContainerRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        delay: 0.5,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        scrollTrigger: {
+          trigger: subscriptionFormContainerRef.current,
+        },
+      },
+    );
+  }
+};
+
+export const subscriptionHeadingTextAnimation = (
+  subscriptionHeadingTextRef: RefObject<HTMLDivElement>,
+) => {
+  if (subscriptionHeadingTextRef.current) {
+    gsap.fromTo(
+      subscriptionHeadingTextRef.current,
+      { y: -32, opacity: 0 },
+      {
+        opacity: 1,
+        y: 0,
+        delay: 0.5,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        scrollTrigger: {
+          trigger: subscriptionHeadingTextRef.current,
+          start: 'top 20%',
+        },
+      },
+    );
+  }
+};
+
+export const eventGalleryContainerAnimation = (eventGalleryRef: RefObject<HTMLDivElement>) => {
+  if (eventGalleryRef.current) {
+    const eventGalleryContainer = eventGalleryRef.current.querySelectorAll('div');
+
+    eventGalleryContainer.forEach((item, index) => {
+      const rotateFrom = index % 2 !== 0 ? 10 : -340;
+      const rotateTo = index % 2 !== 0 ? -10 : -350;
+
+      gsap.fromTo(
+        item,
+        { opacity: 0, scale: 0.8, rotation: rotateFrom },
+        {
+          opacity: 1,
+          duration: 1,
+          rotation: rotateTo,
+          scale: 1,
+          ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+          scrollTrigger: {
+            trigger: eventGalleryRef.current,
+          },
+        },
+      );
+    });
+  }
 };

@@ -8,7 +8,7 @@ import { CountdownTimer } from './CountdownTimer';
 import {
   logoAnimation,
   headerTextAnimation,
-  bannerHeaderSubTextAnimation,
+  headerSubTextAnimation,
 } from '@/utils/animations/homeAnimations';
 
 export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () => void }) => {
@@ -20,7 +20,7 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
     const bannerHeaderText = SplitType.create('#bannerHeaderText');
     logoAnimation(logoRef);
     headerTextAnimation(bannerHeaderText, bannerHeaderTextRef);
-    bannerHeaderSubTextAnimation(bannerSubTextRef);
+    headerSubTextAnimation(bannerSubTextRef);
 
     return () => {
       bannerHeaderText.revert();
