@@ -1,5 +1,12 @@
 import Image from 'next/image';
+import SplitType from 'split-type';
 import Marquee from 'react-fast-marquee';
+import { useEffect, useRef } from 'react';
+import {
+  biggestTechHeaderAnimation,
+  biggestTextSubTextAnimation,
+  imageGalleryAnimation,
+} from '@/utils/animations/homeAnimations';
 
 const eventImages = [
   'tech-festival-img-one.webp',
@@ -9,20 +16,39 @@ const eventImages = [
 ];
 
 export const BiggestTechFestival = () => {
+  const biggestTechHeaderRef = useRef<HTMLDivElement>(null);
+  const biggestTextSubTextRef = useRef<HTMLDivElement>(null);
+  const imageGalleryContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const biggestTechHeader = SplitType.create('#biggestTechHeader');
+    biggestTechHeaderAnimation(biggestTechHeader, biggestTechHeaderRef);
+    biggestTextSubTextAnimation(biggestTextSubTextRef);
+    imageGalleryAnimation(imageGalleryContainerRef);
+
+    return () => {
+      biggestTechHeader.revert();
+    };
+  }, []);
+
   return (
     <section className='big-tech-festival-wrapper' aria-labelledby='festival-heading'>
       <div className='container'>
         <div className='text-content'>
-          <h2 id='festival-heading' className='text-5xl'>
+          <h2 id='biggestTechHeader' className='text-5xl'>
             The Biggest Tech Festival in Nigeria
           </h2>
-          <p className='text-xl'>
+          <p className='text-xl' ref={biggestTextSubTextRef}>
             We&apos;re back! and it&apos;s about to be the biggest and most unforgettable tech
             festival yet. Get ready for DevFest Lagos.
           </p>
         </div>
       </div>
-      <div className='image-gallery' aria-label='Scrolling images of past events'>
+      <div
+        className='image-gallery'
+        aria-label='Scrolling images of past events'
+        ref={imageGalleryContainerRef}
+      >
         <Marquee speed={20} aria-label='Scrolling images of past events'>
           {eventImages.map((image, key) => (
             <div className='single-img-container' key={key}>

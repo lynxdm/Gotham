@@ -13,12 +13,13 @@ import {
 
 export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () => void }) => {
   const logoRef = useRef<HTMLDivElement>(null);
+  const bannerHeaderTextRef = useRef<HTMLDivElement>(null);
   const bannerSubTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const bannerHeaderText = SplitType.create('#bannerHeaderText');
     logoAnimation(logoRef);
-    headerTextAnimation(bannerHeaderText);
+    headerTextAnimation(bannerHeaderText, bannerHeaderTextRef);
     bannerHeaderSubTextAnimation(bannerSubTextRef);
 
     return () => {
@@ -48,7 +49,7 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
           <div className='asterisk-container'>
             <Image src='/images/svg/asterik.svg' alt='Asterisk' height={40} width={40} />
           </div>
-          <h2 className='text-5xl' id='bannerHeaderText'>
+          <h2 className='text-5xl' id='bannerHeaderText' ref={bannerHeaderTextRef}>
             DevFest Lagos is Back, Bigger and Better
           </h2>
 
