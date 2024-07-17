@@ -4,7 +4,7 @@ import Marquee from 'react-fast-marquee';
 import { useEffect, useRef } from 'react';
 import {
   biggestTechHeaderAnimation,
-  biggestTextSubTextAnimation,
+  biggestTechSubTextAnimation,
   imageGalleryAnimation,
 } from '@/utils/animations/homeAnimations';
 
@@ -17,13 +17,13 @@ const eventImages = [
 
 export const BiggestTechFestival = () => {
   const biggestTechHeaderRef = useRef<HTMLDivElement>(null);
-  const biggestTextSubTextRef = useRef<HTMLDivElement>(null);
+  const biggestTechSubTextRef = useRef<HTMLDivElement>(null);
   const imageGalleryContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const biggestTechHeader = SplitType.create('#biggestTechHeader');
     biggestTechHeaderAnimation(biggestTechHeader, biggestTechHeaderRef);
-    biggestTextSubTextAnimation(biggestTextSubTextRef);
+    biggestTechSubTextAnimation(biggestTechSubTextRef);
     imageGalleryAnimation(imageGalleryContainerRef);
 
     return () => {
@@ -35,10 +35,10 @@ export const BiggestTechFestival = () => {
     <section className='big-tech-festival-wrapper' aria-labelledby='festival-heading'>
       <div className='container'>
         <div className='text-content'>
-          <h2 id='biggestTechHeader' className='text-5xl'>
+          <h2 id='biggestTechHeader' className='text-5xl' ref={biggestTechHeaderRef}>
             The Biggest Tech Festival in Nigeria
           </h2>
-          <p className='text-xl' ref={biggestTextSubTextRef}>
+          <p className='text-xl' ref={biggestTechSubTextRef}>
             We&apos;re back! and it&apos;s about to be the biggest and most unforgettable tech
             festival yet. Get ready for DevFest Lagos.
           </p>

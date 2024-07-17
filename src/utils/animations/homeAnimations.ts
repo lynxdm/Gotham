@@ -36,11 +36,10 @@ export const headerTextAnimation = (
         stagger: 0.4,
         duration: 1,
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-        delay: 0.2,
         scrollTrigger: {
           trigger: bannerHeaderTextRef.current,
-          start: 'top 80%',
           toggleActions: 'play none none none',
+          start: '40px 60%',
         },
       },
     );
@@ -56,26 +55,26 @@ export const headerSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivElemen
         opacity: 1,
         duration: 1,
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-        delay: 0.2,
+        delay: 0.5,
         scrollTrigger: {
           trigger: bannerSubTextRef.current,
-          start: 'top 80%',
           toggleActions: 'play none none none',
+          start: '40px 60%',
         },
       },
     );
   }
 };
 
-//Big Tech Festival Animations
+//Bigest Tech Festival Animations
 
 export const biggestTechHeaderAnimation = (
-  bannerHeaderText: { lines: HTMLElement[] | null },
+  biggestTechHeaderText: { lines: HTMLElement[] | null },
   biggestTechHeaderRef: RefObject<HTMLDivElement>,
 ) => {
-  if (bannerHeaderText) {
+  if (biggestTechHeaderText) {
     gsap.fromTo(
-      bannerHeaderText.lines,
+      biggestTechHeaderText.lines,
       { opacity: 0, x: -32 },
       {
         opacity: 1,
@@ -86,16 +85,17 @@ export const biggestTechHeaderAnimation = (
         delay: 0.2,
         scrollTrigger: {
           trigger: biggestTechHeaderRef.current,
+          start: '40px 85%',
         },
       },
     );
   }
 };
 
-export const biggestTextSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivElement>) => {
-  if (bannerSubTextRef.current) {
+export const biggestTechSubTextAnimation = (biggestTechSubTextRef: RefObject<HTMLDivElement>) => {
+  if (biggestTechSubTextRef.current) {
     gsap.fromTo(
-      bannerSubTextRef.current,
+      biggestTechSubTextRef.current,
       { opacity: 0 },
       {
         opacity: 1,
@@ -103,9 +103,8 @@ export const biggestTextSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivE
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
         delay: 0.2,
         scrollTrigger: {
-          trigger: bannerSubTextRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
+          trigger: biggestTechSubTextRef.current,
+          start: '40px 85%',
         },
       },
     );
@@ -113,44 +112,41 @@ export const biggestTextSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivE
 };
 
 export const imageGalleryAnimation = (imageGalleryRef: RefObject<HTMLDivElement>) => {
-  setTimeout(() => {
-    if (imageGalleryRef.current) {
+  if (imageGalleryRef.current && window.innerWidth > 1024) {
+    gsap.fromTo(
+      imageGalleryRef.current,
+      { opacity: 0, x: 300 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        scrollTrigger: {
+          trigger: imageGalleryRef.current,
+          start: '40px 85%',
+        },
+      },
+    );
+    const items = imageGalleryRef.current.querySelectorAll('.single-img-container');
+    Array.from(items).forEach((item) => {
       gsap.fromTo(
-        imageGalleryRef.current,
-        { opacity: 0, x: 300 },
+        item,
+        { opacity: 0, scale: 1.1 },
         {
           opacity: 1,
-          x: 0,
           duration: 1,
           delay: 0.2,
+          scale: 1,
           ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
           scrollTrigger: {
-            trigger: imageGalleryRef.current,
+            trigger: item,
+            start: '40px 85%',
           },
         },
       );
-
-      const items = imageGalleryRef.current.querySelectorAll('.single-img-container');
-
-      Array.from(items).forEach((item) => {
-        gsap.fromTo(
-          item,
-          { opacity: 0, scale: 1.05 },
-          {
-            opacity: 1,
-            duration: 1,
-            delay: 0.7,
-            scale: 1,
-            ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-            scrollTrigger: {
-              trigger: item,
-            },
-          },
-        );
-      });
-    } else {
-    }
-  }, 100);
+    });
+  }
 };
 
 //HiGHLIGHTS SECTION
@@ -166,6 +162,7 @@ export const highlightsIntroHeader = (highlightsIntroHeaderRef: RefObject<HTMLHe
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
         scrollTrigger: {
           trigger: highlightsIntroHeaderRef.current,
+          start: '40px 85%',
         },
       },
     );
@@ -189,6 +186,7 @@ export const highlightsHeaderAnimation = (
         delay: 1,
         scrollTrigger: {
           trigger: highlightHeaderRef.current,
+          start: '40px 85%',
         },
       },
     );
@@ -198,7 +196,7 @@ export const highlightsHeaderAnimation = (
 export const highlightsVideoBgAnimation = (highlightsVideoBgRef: RefObject<HTMLDivElement>) => {
   gsap.fromTo(
     highlightsVideoBgRef.current,
-    { opacity: 0, scale: 0.9 },
+    { opacity: 0, scale: 0.8 },
     {
       opacity: 1,
       duration: 0.7,
@@ -207,6 +205,7 @@ export const highlightsVideoBgAnimation = (highlightsVideoBgRef: RefObject<HTMLD
       ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
       scrollTrigger: {
         trigger: highlightsVideoBgRef.current,
+        start: '40px 85%',
       },
     },
   );
@@ -239,6 +238,7 @@ export const subscriptionFormContainerAnimation = (
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
         scrollTrigger: {
           trigger: subscriptionFormContainerRef.current,
+          start: '40px 85%',
         },
       },
     );
@@ -260,7 +260,7 @@ export const subscriptionHeadingTextAnimation = (
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
         scrollTrigger: {
           trigger: subscriptionHeadingTextRef.current,
-          start: 'top 20%',
+          start: '40px 85%',
         },
       },
     );
@@ -286,6 +286,7 @@ export const eventGalleryContainerAnimation = (eventGalleryRef: RefObject<HTMLDi
           ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
           scrollTrigger: {
             trigger: eventGalleryRef.current,
+            start: '40px 20%',
           },
         },
       );

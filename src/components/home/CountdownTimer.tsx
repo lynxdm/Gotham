@@ -82,7 +82,7 @@ export const CountdownTimer = () => {
 
   const { days, hours, minutes, seconds } = timeLeft;
 
-  if (!isMounted) return null;
+  if (!isMounted) return <div className='timer-placeholder'></div>;
 
   return (
     <div className='countdown-wrapper'>
