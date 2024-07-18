@@ -43,28 +43,31 @@ interface ButtonProps
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({
-    label = 'Button',
-    onClick,
-    className,
-    isLoading = false,
-    disabled = false,
-    animate = true,
-    type,
-    state,
-    size,
-    fullWidth,
-  }) => {
+  (
+    {
+      label = 'Button',
+      onClick,
+      className,
+      isLoading = false,
+      disabled = false,
+      animate = true,
+      type,
+      state,
+      size,
+      fullWidth,
+    },
+    ref,
+  ) => {
     const buttonRef = React.useRef<HTMLButtonElement>(null);
 
     React.useEffect(() => {
       if (animate) buttonAnimation(buttonRef, size);
-    }, [animate]);
+    }, [animate, size]);
 
     return (
       <button
         className={classNames(buttonVariants({ state, size, fullWidth, className }))}
-        ref={buttonRef}
+        ref={ref || buttonRef}
         disabled={disabled || isLoading}
         type={type === 'submit' ? 'submit' : 'button'}
         onClick={onClick}

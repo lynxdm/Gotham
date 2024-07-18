@@ -224,6 +224,48 @@ export const celebrationHeaderTextAnimation = (
 export const celebrationSubTextAnimation = (subTextRef: RefObject<HTMLDivElement>) =>
   headerSubTextAnimation(subTextRef);
 
+export const celebrationImageGalleryAnimation = (imageGalleryRef: RefObject<HTMLDivElement>) => {
+  if (imageGalleryRef.current) {
+    const images = imageGalleryRef.current.querySelectorAll('div');
+
+    const cordinates =
+      window.innerWidth >= 1024
+        ? [
+            { x: 90, y: -70 },
+            { x: -90, y: -120 },
+            { x: 20, y: -100 },
+            { x: -150, y: -180, rotate: -22 },
+            { x: 170, y: -200, rotate: 22 },
+          ]
+        : [
+            { x: 30, y: -10 },
+            { x: -20, y: -30 },
+            { x: 0, y: -30 },
+            { x: -15, y: -70, rotate: -10 },
+            { x: 10, y: -80, rotate: 22 },
+          ];
+
+    const animateCard = (index: number, x: number, y: number, rotate?: number) => {
+      const scrollTrigger = {
+        trigger: imageGalleryRef.current,
+        start: '40px 80%',
+      };
+
+      return gsap.to(images[index], {
+        y,
+        x,
+        rotate,
+        scrollTrigger,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+      });
+    };
+
+    cordinates.forEach(({ x, y, rotate }, index) => {
+      animateCard(index, x, y, rotate);
+    });
+  }
+};
+
 //SUBSCRIPTION SECTION ANIMATION
 
 export const subscriptionFormContainerAnimation = (

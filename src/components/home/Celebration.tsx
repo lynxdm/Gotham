@@ -5,16 +5,19 @@ import { useRef, useEffect } from 'react';
 import {
   celebrationHeaderTextAnimation,
   celebrationSubTextAnimation,
+  celebrationImageGalleryAnimation,
 } from '@/utils/animations/pages/homeAnimations';
 
 export const Celebration = () => {
   const headerTextRef = useRef<HTMLDivElement>(null);
   const subTextRef = useRef<HTMLDivElement>(null);
+  const imageGallerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const headerText = SplitType.create('#celebrationHeading');
     celebrationHeaderTextAnimation(headerText, headerTextRef);
     celebrationSubTextAnimation(subTextRef);
+    celebrationImageGalleryAnimation(imageGallerRef);
 
     return () => {
       headerText.revert();
@@ -33,7 +36,7 @@ export const Celebration = () => {
         <Button label='Get Early Bird Tickets' size='lg' />
       </div>
       <div className='celebration-image-gallery-wrapper'>
-        <div className='celebration-image-gallery'>
+        <div className='celebration-image-gallery' ref={imageGallerRef}>
           <div className='celebration-image-one'>
             <Image src='/images/png/free-swag-white.png' fill alt='Free swag' />
           </div>
