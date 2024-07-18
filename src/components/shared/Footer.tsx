@@ -89,7 +89,7 @@ export const Footer = () => {
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>
-            <Button label='Get Early Bird Tickets' size='lg' />
+            <Button label='Get Early Bird Tickets' size='lg' animate={false} />
 
             <div className='footer-links'>
               <ul>

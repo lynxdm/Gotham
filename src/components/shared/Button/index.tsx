@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { classNames } from '@/utils/classNames';
 import { cva, type VariantProps } from 'class-variance-authority';
+import buttonAnimation from '@/utils/animations/components/buttonAnimation';
 
 const buttonVariants = cva(`btn`, {
   variants: {
@@ -38,6 +39,7 @@ interface ButtonProps
   type?: 'button' | 'submit';
   size?: 'sm' | 'md' | 'lg';
   state?: ButtonState;
+  animate?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -48,6 +50,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       isLoading = false,
       disabled = false,
+      animate = true,
       type,
       state,
       size,
@@ -55,10 +58,16 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => {
+    const buttonRef = React.useRef<HTMLButtonElement>(null);
+
+    React.useEffect(() => {
+      if (animate) buttonAnimation(buttonRef, size);
+    }, [animate, size]);
+
     return (
       <button
         className={classNames(buttonVariants({ state, size, fullWidth, className }))}
-        ref={ref}
+        ref={ref || buttonRef}
         disabled={disabled || isLoading}
         type={type === 'submit' ? 'submit' : 'button'}
         onClick={onClick}
@@ -66,7 +75,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         aria-busy={isLoading}
         aria-live='polite'
       >
-        {label}
+        {animate ? <div>{label}</div> : label}
       </button>
     );
   },

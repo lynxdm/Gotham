@@ -92,7 +92,7 @@
 
     .text-content {
       background-color: #ffffff;
-      max-width: 700px;
+      max-width: 710px;
 
       p {
         color: var(--dv-gray);
@@ -219,7 +219,7 @@
     }
 
     .celebration-image-gallery-wrapper {
-      margin-top: 7rem;
+      margin-top: 9rem;
 
       @include media('<=tablet') {
         padding-left: 1rem;

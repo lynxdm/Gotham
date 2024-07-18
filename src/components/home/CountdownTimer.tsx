@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { gsap } from 'gsap';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 
 const isValidDateFormat = (dateString: string): boolean => {
   const regex = /^\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2}$/;
@@ -64,6 +65,12 @@ export const CountdownTimer = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft(eventDate));
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const daysRef = useRef<HTMLDivElement>(null);
+  const hoursRef = useRef<HTMLDivElement>(null);
+  const minutesRef = useRef<HTMLDivElement>(null);
+  const secondsRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -80,26 +87,93 @@ export const CountdownTimer = () => {
     return () => clearInterval(timer);
   }, [eventDate]);
 
+  useEffect(() => {
+    if (containerRef.current) {
+      gsap.fromTo(
+        containerRef.current,
+        { opacity: 0, y: -10 },
+        {
+          opacity: 1,
+          y: 0,
+          delay: 0.4,
+          duration: 1,
+          ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+          scrollTrigger: {
+            trigger: containerRef.current,
+          },
+        },
+      );
+    }
+  }, [isMounted]);
+
+  useEffect(() => {
+    if (secondsRef.current) {
+      gsap.fromTo(
+        secondsRef.current,
+        { y: -50 },
+        { y: 0, duration: 0.5, ease: 'cubic-bezier(0.7, 0, 0.25, 1)' },
+      );
+    }
+  }, [timeLeft.seconds, isMounted]);
+
+  useEffect(() => {
+    if (minutesRef.current) {
+      gsap.fromTo(
+        minutesRef.current,
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.2, delay: 0.6 },
+      );
+    }
+  }, [timeLeft.minutes, isMounted]);
+
+  useEffect(() => {
+    if (hoursRef.current) {
+      gsap.fromTo(
+        hoursRef.current,
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.2, delay: 0.8 },
+      );
+    }
+  }, [timeLeft.hours, isMounted]);
+
+  useEffect(() => {
+    if (daysRef.current) {
+      gsap.fromTo(
+        daysRef.current,
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.2, delay: 1 },
+      );
+    }
+  }, [timeLeft.days, isMounted]);
+
   const { days, hours, minutes, seconds } = timeLeft;
 
-  if (!isMounted) return null;
+  if (!isMounted) return <div className='timer-placeholder'></div>;
 
   return (
-    <div className='countdown-wrapper'>
+    <div className='countdown-wrapper' ref={containerRef}>
       <div>
-        <h1 className='text-6xl'>{days}</h1>
+        <h1 className='text-6xl' ref={daysRef}>
+          {days}
+        </h1>
         <p>Days</p>
       </div>
       <div>
-        <h1 className='text-6xl'>{hours}</h1>
+        <h1 className='text-6xl' ref={hoursRef}>
+          {hours}
+        </h1>
         <p>Hours</p>
       </div>
       <div>
-        <h1 className='text-6xl'>{minutes}</h1>
+        <h1 className='text-6xl' ref={minutesRef}>
+          {minutes}
+        </h1>
         <p>Minutes</p>
       </div>
       <div>
-        <h1 className='text-6xl'>{seconds}</h1>
+        <h1 className='text-6xl' ref={secondsRef}>
+          {seconds}
+        </h1>
         <p>Seconds</p>
       </div>
     </div>

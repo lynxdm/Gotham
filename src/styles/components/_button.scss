@@ -4,16 +4,23 @@
   border-radius: 4px;
   width: fit-content;
   cursor: pointer;
+  position: relative;
 
   @include buttonTransition();
 
   //Size variants
+
+  div {
+    position: relative;
+    top: 20;
+  }
+
   &-sm {
-    padding: 12px 54px;
+    padding: 12px 36px;
   }
 
   &-md {
-    padding: 20px 65px;
+    padding: 20px 43.3px;
   }
 
   &-lg {
@@ -26,16 +33,6 @@
     background-color: var(--dv-black);
     color: #ffffff;
   }
-
-  // &-primary {
-  //     background-color: rgb(var(--foreground-rgb));
-  //     color: rgb(var(--background-rgb))
-  // }
-
-  // &-secondary {
-  //     background-color: rgb(var(--background-rgb));
-  //     color: rgb(var(--foreground-rgb))
-  // }
 
   &:disabled {
     cursor: not-allowed;

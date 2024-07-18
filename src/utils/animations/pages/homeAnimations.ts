@@ -1,0 +1,339 @@
+import gsap from 'gsap';
+import { RefObject } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+//Banner animations
+export const logoAnimation = (logoRef: RefObject<HTMLDivElement>) => {
+  if (logoRef.current) {
+    gsap.fromTo(
+      logoRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        scrollTrigger: {
+          trigger: logoRef.current,
+        },
+      },
+    );
+  }
+};
+
+export const headerTextAnimation = (
+  bannerHeaderText: { lines: HTMLElement[] | null },
+  bannerHeaderTextRef: RefObject<HTMLDivElement>,
+) => {
+  if (bannerHeaderText) {
+    gsap.fromTo(
+      bannerHeaderText.lines,
+      { opacity: 0, y: 32 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.4,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        scrollTrigger: {
+          trigger: bannerHeaderTextRef.current,
+          toggleActions: 'play none none none',
+          start: '40px 60%',
+        },
+      },
+    );
+  }
+};
+
+export const headerSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivElement>) => {
+  if (bannerSubTextRef.current) {
+    gsap.fromTo(
+      bannerSubTextRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: bannerSubTextRef.current,
+          toggleActions: 'play none none none',
+          start: '40px 60%',
+        },
+      },
+    );
+  }
+};
+
+//Bigest Tech Festival Animations
+
+export const biggestTechHeaderAnimation = (
+  biggestTechHeaderText: { lines: HTMLElement[] | null },
+  biggestTechHeaderRef: RefObject<HTMLDivElement>,
+) => {
+  if (biggestTechHeaderText) {
+    gsap.fromTo(
+      biggestTechHeaderText.lines,
+      { opacity: 0, x: -32 },
+      {
+        opacity: 1,
+        x: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: biggestTechHeaderRef.current,
+          start: '40px 85%',
+        },
+      },
+    );
+  }
+};
+
+export const biggestTechSubTextAnimation = (biggestTechSubTextRef: RefObject<HTMLDivElement>) => {
+  if (biggestTechSubTextRef.current) {
+    gsap.fromTo(
+      biggestTechSubTextRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 2,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: biggestTechSubTextRef.current,
+          start: '40px 85%',
+        },
+      },
+    );
+  }
+};
+
+export const imageGalleryAnimation = (imageGalleryRef: RefObject<HTMLDivElement>) => {
+  setTimeout(() => {
+    if (imageGalleryRef.current && window.innerWidth > 1280) {
+      gsap.fromTo(
+        imageGalleryRef.current,
+        { opacity: 0, x: 400 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          delay: 0.2,
+          ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+          scrollTrigger: {
+            trigger: imageGalleryRef.current,
+            start: '40px 85%',
+          },
+        },
+      );
+      const items = imageGalleryRef.current.querySelectorAll('.single-img-container img');
+      Array.from(items).forEach((item) => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, scale: 1.1 },
+          {
+            opacity: 1,
+            duration: 1,
+            delay: 0.4,
+            scale: 1,
+            ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+            scrollTrigger: {
+              trigger: imageGalleryRef.current,
+              start: '40px 85%',
+            },
+          },
+        );
+      });
+    }
+  }, 100);
+};
+
+//HiGHLIGHTS SECTION
+
+export const highlightsIntroHeader = (highlightsIntroHeaderRef: RefObject<HTMLHeadingElement>) => {
+  if (highlightsIntroHeaderRef.current) {
+    gsap.fromTo(
+      highlightsIntroHeaderRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        scrollTrigger: {
+          trigger: highlightsIntroHeaderRef.current,
+          start: '40px 85%',
+        },
+      },
+    );
+  }
+};
+
+export const highlightsHeaderAnimation = (
+  highlightsHeaderText: { lines: HTMLElement[] | null },
+  highlightHeaderRef: RefObject<HTMLElement>,
+) => {
+  if (highlightsHeaderText) {
+    gsap.fromTo(
+      highlightsHeaderText.lines,
+      { opacity: 0, x: -32 },
+      {
+        opacity: 1,
+        x: 0,
+        stagger: 0.5,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        delay: 1,
+        scrollTrigger: {
+          trigger: highlightHeaderRef.current,
+          start: '40px 85%',
+        },
+      },
+    );
+  }
+};
+
+export const highlightsVideoBgAnimation = (highlightsVideoBgRef: RefObject<HTMLDivElement>) => {
+  gsap.fromTo(
+    highlightsVideoBgRef.current,
+    { opacity: 0, scale: 0.8 },
+    {
+      opacity: 1,
+      duration: 0.7,
+      delay: 0.7,
+      scale: 1,
+      ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+      scrollTrigger: {
+        trigger: highlightsVideoBgRef.current,
+        start: '40px 85%',
+      },
+    },
+  );
+};
+
+//CELEBRATION ANIMATION
+
+//In case of edits for individual items
+export const celebrationHeaderTextAnimation = (
+  headerText: { lines: HTMLElement[] | null },
+  headerTextRef: RefObject<HTMLDivElement>,
+) => headerTextAnimation(headerText, headerTextRef);
+
+export const celebrationSubTextAnimation = (subTextRef: RefObject<HTMLDivElement>) =>
+  headerSubTextAnimation(subTextRef);
+
+export const celebrationImageGalleryAnimation = (imageGalleryRef: RefObject<HTMLDivElement>) => {
+  if (imageGalleryRef.current) {
+    const images = imageGalleryRef.current.querySelectorAll('div');
+
+    const cordinates =
+      window.innerWidth >= 1024
+        ? [
+            { x: 90, y: -70 },
+            { x: -90, y: -120 },
+            { x: 20, y: -100 },
+            { x: -150, y: -180, rotate: -22 },
+            { x: 170, y: -200, rotate: 22 },
+          ]
+        : [
+            { x: 30, y: -10 },
+            { x: -20, y: -30 },
+            { x: 0, y: -30 },
+            { x: -15, y: -70, rotate: -10 },
+            { x: 10, y: -80, rotate: 22 },
+          ];
+
+    const animateCard = (index: number, x: number, y: number, rotate?: number) => {
+      const scrollTrigger = {
+        trigger: imageGalleryRef.current,
+        start: '40px 80%',
+      };
+
+      return gsap.to(images[index], {
+        y,
+        x,
+        rotate,
+        scrollTrigger,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+      });
+    };
+
+    cordinates.forEach(({ x, y, rotate }, index) => {
+      animateCard(index, x, y, rotate);
+    });
+  }
+};
+
+//SUBSCRIPTION SECTION ANIMATION
+
+export const subscriptionFormContainerAnimation = (
+  subscriptionFormContainerRef: RefObject<HTMLDivElement>,
+) => {
+  if (subscriptionFormContainerRef.current) {
+    gsap.fromTo(
+      subscriptionFormContainerRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        delay: 0.5,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        scrollTrigger: {
+          trigger: subscriptionFormContainerRef.current,
+          start: '40px 85%',
+        },
+      },
+    );
+  }
+};
+
+export const subscriptionHeadingTextAnimation = (
+  subscriptionHeadingTextRef: RefObject<HTMLDivElement>,
+) => {
+  if (subscriptionHeadingTextRef.current) {
+    gsap.fromTo(
+      subscriptionHeadingTextRef.current,
+      { y: -32, opacity: 0 },
+      {
+        opacity: 1,
+        y: 0,
+        delay: 0.5,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        scrollTrigger: {
+          trigger: subscriptionHeadingTextRef.current,
+          start: '40px 85%',
+        },
+      },
+    );
+  }
+};
+
+export const eventGalleryContainerAnimation = (eventGalleryRef: RefObject<HTMLDivElement>) => {
+  if (eventGalleryRef.current) {
+    const eventGalleryContainer = eventGalleryRef.current.querySelectorAll('div');
+
+    eventGalleryContainer.forEach((item, index) => {
+      const rotateFrom = index % 2 !== 0 ? 10 : -340;
+      const rotateTo = index % 2 !== 0 ? -10 : -350;
+
+      gsap.fromTo(
+        item,
+        { opacity: 0, scale: 0.8, rotation: rotateFrom },
+        {
+          opacity: 1,
+          duration: 1,
+          rotation: rotateTo,
+          scale: 1,
+          ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+          scrollTrigger: {
+            trigger: eventGalleryRef.current,
+            start: '40px 20%',
+          },
+        },
+      );
+    });
+  }
+};

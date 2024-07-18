@@ -1,11 +1,16 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, LegacyRef } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Textfield, Modal } from '../shared';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useState, useEffect, LegacyRef, useRef } from 'react';
 import { subscriptionFormValidationSchema } from '@/utils/validationSchemas/subscriptionFormSchema';
+import {
+  subscriptionFormContainerAnimation,
+  subscriptionHeadingTextAnimation,
+  eventGalleryContainerAnimation,
+} from '@/utils/animations/pages/homeAnimations';
 
 interface subscriptionFormData {
   name: string;
@@ -13,7 +18,16 @@ interface subscriptionFormData {
 }
 
 export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<HTMLElement> }) => {
+  const subsciptionFormRef = useRef<HTMLDivElement>(null);
+  const textHeadingRef = useRef<HTMLDivElement>(null);
+  const eventGgallerycontainerRef = useRef<HTMLDivElement>(null);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    subscriptionFormContainerAnimation(subsciptionFormRef);
+    subscriptionHeadingTextAnimation(textHeadingRef);
+    eventGalleryContainerAnimation(eventGgallerycontainerRef);
+  }, []);
 
   const {
     register,
@@ -38,26 +52,30 @@ export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<H
           <div className='subscription-content'>
             <div className='subscription-form-container'>
               <p className='text-xl'>Subscribe</p>
-              <h2 className='text-5xl'>Don&apos;t loose guard. Get notified first!</h2>
-              <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <Textfield
-                  id='name'
-                  placeholder='Your Name'
-                  register={register}
-                  error={errors.name?.message}
-                />
+              <h2 className='text-5xl' ref={textHeadingRef}>
+                Don&apos;t loose guard. Get notified first!
+              </h2>
+              <div ref={subsciptionFormRef}>
+                <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                  <Textfield
+                    id='name'
+                    placeholder='Your Name'
+                    register={register}
+                    error={errors.name?.message}
+                  />
 
-                <Textfield
-                  id='email'
-                  type='email'
-                  placeholder='Email Address'
-                  register={register}
-                  error={errors.email?.message}
-                />
-                <Button type='submit' label='Submit'></Button>
-              </form>
+                  <Textfield
+                    id='email'
+                    type='email'
+                    placeholder='Email Address'
+                    register={register}
+                    error={errors.email?.message}
+                  />
+                  <Button type='submit' label='Submit'></Button>
+                </form>
+              </div>
             </div>
-            <div className='event-gallery-container'>
+            <div className='event-gallery-container' ref={eventGgallerycontainerRef}>
               <div className='event-img-four'>
                 <Image
                   src='/images/webp/2023-event-img-four.webp'
