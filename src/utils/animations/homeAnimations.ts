@@ -112,41 +112,43 @@ export const biggestTechSubTextAnimation = (biggestTechSubTextRef: RefObject<HTM
 };
 
 export const imageGalleryAnimation = (imageGalleryRef: RefObject<HTMLDivElement>) => {
-  if (imageGalleryRef.current && window.innerWidth > 1024) {
-    gsap.fromTo(
-      imageGalleryRef.current,
-      { opacity: 0, x: 300 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        delay: 0.2,
-        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-        scrollTrigger: {
-          trigger: imageGalleryRef.current,
-          start: '40px 85%',
-        },
-      },
-    );
-    const items = imageGalleryRef.current.querySelectorAll('.single-img-container');
-    Array.from(items).forEach((item) => {
+  setTimeout(() => {
+    if (imageGalleryRef.current && window.innerWidth > 1280) {
       gsap.fromTo(
-        item,
-        { opacity: 0, scale: 1.1 },
+        imageGalleryRef.current,
+        { opacity: 0, x: 400 },
         {
           opacity: 1,
+          x: 0,
           duration: 1,
           delay: 0.2,
-          scale: 1,
           ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
           scrollTrigger: {
-            trigger: item,
+            trigger: imageGalleryRef.current,
             start: '40px 85%',
           },
         },
       );
-    });
-  }
+      const items = imageGalleryRef.current.querySelectorAll('.single-img-container img');
+      Array.from(items).forEach((item) => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, scale: 1.1 },
+          {
+            opacity: 1,
+            duration: 1,
+            delay: 0.4,
+            scale: 1,
+            ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+            scrollTrigger: {
+              trigger: imageGalleryRef.current,
+              start: '40px 85%',
+            },
+          },
+        );
+      });
+    }
+  }, 100);
 };
 
 //HiGHLIGHTS SECTION
