@@ -110,7 +110,7 @@ export const CountdownTimer = () => {
     if (secondsRef.current) {
       gsap.fromTo(
         secondsRef.current,
-        { y: -50 },
+        { y: window.innerWidth < 768 ? -15 : -50 },
         { y: 0, duration: 0.5, ease: 'cubic-bezier(0.7, 0, 0.25, 1)' },
       );
     }
@@ -120,7 +120,7 @@ export const CountdownTimer = () => {
     if (minutesRef.current) {
       gsap.fromTo(
         minutesRef.current,
-        { y: -50, opacity: 0 },
+        { y: window.innerWidth < 768 ? -15 : -50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.2, delay: 0.6 },
       );
     }
@@ -130,7 +130,7 @@ export const CountdownTimer = () => {
     if (hoursRef.current) {
       gsap.fromTo(
         hoursRef.current,
-        { y: -50, opacity: 0 },
+        { y: window.innerWidth < 768 ? -15 : -50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.2, delay: 0.8 },
       );
     }
@@ -140,7 +140,7 @@ export const CountdownTimer = () => {
     if (daysRef.current) {
       gsap.fromTo(
         daysRef.current,
-        { y: -50, opacity: 0 },
+        { y: window.innerWidth < 768 ? -15 : -50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.2, delay: 1 },
       );
     }
