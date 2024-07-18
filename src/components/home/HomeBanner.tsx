@@ -9,7 +9,7 @@ import {
   logoAnimation,
   headerTextAnimation,
   headerSubTextAnimation,
-} from '@/utils/animations/homeAnimations';
+} from '@/utils/animations/pages/homeAnimations';
 
 export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () => void }) => {
   const logoRef = useRef<HTMLDivElement>(null);

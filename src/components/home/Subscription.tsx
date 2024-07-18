@@ -10,7 +10,7 @@ import {
   subscriptionFormContainerAnimation,
   subscriptionHeadingTextAnimation,
   eventGalleryContainerAnimation,
-} from '@/utils/animations/homeAnimations';
+} from '@/utils/animations/pages/homeAnimations';
 
 interface subscriptionFormData {
   name: string;

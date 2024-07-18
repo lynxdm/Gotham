@@ -9,18 +9,6 @@
   @include buttonTransition();
 
   //Size variants
-  // &-sm {
-  //   padding: 12px 54px;
-  // }
-
-  // &-md {
-  //   padding: 20px 65px;
-  // }
-
-  // &-lg {
-  //   padding: 23px 54px;
-  //   font-size: 16px;
-  // }
 
   div {
     position: relative;
@@ -36,7 +24,7 @@
   }
 
   &-lg {
-    padding: 23px 36px;
+    padding: 23px 54px;
     font-size: 16px;
   }
 

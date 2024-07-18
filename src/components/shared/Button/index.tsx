@@ -1,12 +1,9 @@
 'use client';
 
-import gsap from 'gsap';
 import * as React from 'react';
 import { classNames } from '@/utils/classNames';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cva, type VariantProps } from 'class-variance-authority';
-
-gsap.registerPlugin(ScrollTrigger);
+import buttonAnimation from '@/utils/animations/components/buttonAnimation';
 
 const buttonVariants = cva(`btn`, {
   variants: {
@@ -42,6 +39,7 @@ interface ButtonProps
   type?: 'button' | 'submit';
   size?: 'sm' | 'md' | 'lg';
   state?: ButtonState;
+  animate?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -51,6 +49,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     className,
     isLoading = false,
     disabled = false,
+    animate = true,
     type,
     state,
     size,
@@ -59,45 +58,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const buttonRef = React.useRef<HTMLButtonElement>(null);
 
     React.useEffect(() => {
-      const button = buttonRef.current;
-
-      if (button) {
-        const buttonLabel = button?.getElementsByTagName('div');
-
-        const btnHorizontalPadding = size === 'sm' ? 54 : size === 'md' ? 65 : 54;
-        const btnVerticalPadding = size === 'sm' ? 12 : size === 'md' ? 20 : 23;
-
-        gsap.fromTo(
-          button,
-          {
-            padding: `${btnVerticalPadding} ${btnHorizontalPadding / 1.5}`,
-          },
-          {
-            padding: `${btnVerticalPadding} ${btnHorizontalPadding}`,
-            duration: 1,
-            ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-            scrollTrigger: {
-              trigger: button,
-            },
-          },
-        );
-
-        gsap.fromTo(
-          buttonLabel,
-          { y: 32, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-            duration: 0.5,
-            delay: 0.4,
-            scrollTrigger: {
-              trigger: button,
-            },
-          },
-        );
-      }
-    }, []);
+      if (animate) buttonAnimation(buttonRef, size);
+    }, [animate]);
 
     return (
       <button
@@ -110,7 +72,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         aria-busy={isLoading}
         aria-live='polite'
       >
-        <div>{label}</div>
+        {animate ? <div>{label}</div> : label}
       </button>
     );
   },

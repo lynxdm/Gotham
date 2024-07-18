@@ -5,7 +5,7 @@ import { useRef, useEffect } from 'react';
 import {
   celebrationHeaderTextAnimation,
   celebrationSubTextAnimation,
-} from '@/utils/animations/homeAnimations';
+} from '@/utils/animations/pages/homeAnimations';
 
 export const Celebration = () => {
   const headerTextRef = useRef<HTMLDivElement>(null);

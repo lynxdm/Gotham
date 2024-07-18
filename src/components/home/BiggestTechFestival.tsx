@@ -6,7 +6,7 @@ import {
   biggestTechHeaderAnimation,
   biggestTechSubTextAnimation,
   imageGalleryAnimation,
-} from '@/utils/animations/homeAnimations';
+} from '@/utils/animations/pages/homeAnimations';
 
 const eventImages = [
   'tech-festival-img-one.webp',

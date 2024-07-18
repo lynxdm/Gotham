@@ -8,7 +8,7 @@ import {
   highlightsIntroHeader,
   highlightsHeaderAnimation,
   highlightsVideoBgAnimation,
-} from '@/utils/animations/homeAnimations';
+} from '@/utils/animations/pages/homeAnimations';
 
 export const highlightsVideoUrl = 'https://www.youtube.com/embed/_estn5TK3tQ';
 
