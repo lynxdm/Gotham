@@ -258,7 +258,7 @@ export const celebrationImageGalleryAnimation = (imageGalleryRef: RefObject<HTML
       const scrollTrigger = {
         trigger: imageGalleryRef.current,
         start: isLargeScreen ? '80px 80%' : '20px 60%',
-        markers: true,
+        // markers: true,
       };
 
       return gsap.to(images[index], {
