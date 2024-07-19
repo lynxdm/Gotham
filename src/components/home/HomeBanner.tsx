@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Button } from '../shared';
 import SplitType from 'split-type';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CountdownTimer } from './CountdownTimer';
 import {
   logoAnimation,
@@ -16,15 +16,21 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
   const bannerHeaderTextRef = useRef<HTMLDivElement>(null);
   const bannerSubTextRef = useRef<HTMLDivElement>(null);
 
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
+    setIsMounted(true);
     const bannerHeaderText = SplitType.create('#bannerHeaderText');
     logoAnimation(logoRef);
     headerTextAnimation(bannerHeaderText, bannerHeaderTextRef);
     headerSubTextAnimation(bannerSubTextRef);
+
     return () => {
       bannerHeaderText.revert();
     };
-  }, []);
+  }, [isMounted]);
+
+  if (!isMounted) return <div className='home-banner-paceholder'></div>;
 
   return (
     <section className='home-banner'>
