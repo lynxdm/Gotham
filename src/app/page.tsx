@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { Footer } from '@/components/shared';
 import {
   BiggestTechFestival,
@@ -11,7 +11,6 @@ import {
 } from '@/components/home';
 
 export default function Home() {
-  const [isMounted, setIsMounted] = useState(false);
   const subscriptionRef = useRef<HTMLDivElement | null>(null);
 
   const ScrollToSubscription = () => {
@@ -22,12 +21,6 @@ export default function Home() {
       });
     }
   };
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
 
   return (
     <main className='home'>

@@ -25,8 +25,11 @@ export const logoAnimation = (logoRef: RefObject<HTMLDivElement>) => {
 export const headerTextAnimation = (
   bannerHeaderText: { lines: HTMLElement[] | null },
   bannerHeaderTextRef: RefObject<HTMLDivElement>,
+  useScrollTrigger = false,
 ) => {
-  if (bannerHeaderText) {
+  if (bannerHeaderText && bannerHeaderText.lines) {
+    console.log(bannerHeaderTextRef);
+    gsap.set(bannerHeaderText.lines, { opacity: 0, y: 32 });
     gsap.fromTo(
       bannerHeaderText.lines,
       { opacity: 0, y: 32 },
@@ -36,11 +39,13 @@ export const headerTextAnimation = (
         stagger: 0.4,
         duration: 1,
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-        scrollTrigger: {
-          trigger: bannerHeaderTextRef.current,
-          toggleActions: 'play none none none',
-          start: '40px 60%',
-        },
+        scrollTrigger: useScrollTrigger
+          ? {
+              trigger: bannerHeaderTextRef.current,
+              toggleActions: 'play none none none',
+              start: '40px 60%',
+            }
+          : undefined,
       },
     );
   }
@@ -219,7 +224,7 @@ export const highlightsVideoBgAnimation = (highlightsVideoBgRef: RefObject<HTMLD
 export const celebrationHeaderTextAnimation = (
   headerText: { lines: HTMLElement[] | null },
   headerTextRef: RefObject<HTMLDivElement>,
-) => headerTextAnimation(headerText, headerTextRef);
+) => headerTextAnimation(headerText, headerTextRef, true);
 
 export const celebrationSubTextAnimation = (subTextRef: RefObject<HTMLDivElement>) =>
   headerSubTextAnimation(subTextRef);
