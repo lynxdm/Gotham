@@ -28,7 +28,6 @@ export const headerTextAnimation = (
   useScrollTrigger = false,
 ) => {
   if (bannerHeaderText && bannerHeaderText.lines) {
-    console.log(bannerHeaderTextRef);
     gsap.set(bannerHeaderText.lines, { opacity: 0, y: 32 });
     gsap.fromTo(
       bannerHeaderText.lines,
@@ -51,7 +50,10 @@ export const headerTextAnimation = (
   }
 };
 
-export const headerSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivElement>) => {
+export const headerSubTextAnimation = (
+  bannerSubTextRef: RefObject<HTMLDivElement>,
+  useScrollTrigger = false,
+) => {
   if (bannerSubTextRef.current) {
     gsap.fromTo(
       bannerSubTextRef.current,
@@ -61,11 +63,13 @@ export const headerSubTextAnimation = (bannerSubTextRef: RefObject<HTMLDivElemen
         duration: 1,
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
         delay: 0.5,
-        scrollTrigger: {
-          trigger: bannerSubTextRef.current,
-          toggleActions: 'play none none none',
-          start: '40px 60%',
-        },
+        scrollTrigger: useScrollTrigger
+          ? {
+              trigger: bannerSubTextRef.current,
+              toggleActions: 'play none none none',
+              start: '40px 60%',
+            }
+          : undefined,
       },
     );
   }
@@ -227,7 +231,7 @@ export const celebrationHeaderTextAnimation = (
 ) => headerTextAnimation(headerText, headerTextRef, true);
 
 export const celebrationSubTextAnimation = (subTextRef: RefObject<HTMLDivElement>) =>
-  headerSubTextAnimation(subTextRef);
+  headerSubTextAnimation(subTextRef, true);
 
 export const celebrationImageGalleryAnimation = (imageGalleryRef: RefObject<HTMLDivElement>) => {
   if (imageGalleryRef.current) {
