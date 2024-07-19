@@ -21,7 +21,6 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
     logoAnimation(logoRef);
     headerTextAnimation(bannerHeaderText, bannerHeaderTextRef);
     headerSubTextAnimation(bannerSubTextRef);
-
     return () => {
       bannerHeaderText.revert();
     };

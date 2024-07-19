@@ -55,6 +55,21 @@
 
       h2 {
         text-align: center;
+        opacity: 0;
+        transform: translateY(32px);
+        animation: fadeInUp 2s cubic-bezier(0.7, 0, 0.25, 1) forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(32px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       p {
