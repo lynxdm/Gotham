@@ -257,7 +257,7 @@ export const celebrationImageGalleryAnimation = (imageGalleryRef: RefObject<HTML
     const animateCard = (index: number, x: number, y: number, rotate?: number) => {
       const scrollTrigger = {
         trigger: imageGalleryRef.current,
-        start: isLargeScreen ? '80px 80%' : '20px 60%',
+        start: isLargeScreen ? '80px 80%' : '20px 80%',
         // markers: true,
       };
 
