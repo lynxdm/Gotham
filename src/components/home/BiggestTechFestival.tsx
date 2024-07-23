@@ -39,8 +39,8 @@ export const BiggestTechFestival = () => {
             The Biggest Tech Festival in Nigeria
           </h2>
           <p className='text-xl' ref={biggestTechSubTextRef}>
-            We&apos;re back! and it&apos;s about to be the biggest and most unforgettable tech
-            festival yet. Get ready for DevFest Lagos.
+            We&apos;re back, and DevFest Lagos is set to be the biggest and most unforgettable tech
+            festival yet. Get ready!
           </p>
         </div>
       </div>

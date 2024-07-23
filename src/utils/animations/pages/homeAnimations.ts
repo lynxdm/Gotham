@@ -194,7 +194,7 @@ export const highlightsHeaderAnimation = (
         stagger: 0.5,
         duration: 1,
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-        delay: 1,
+        delay: 0.3,
         scrollTrigger: {
           trigger: highlightHeaderRef.current,
           start: '40px 85%',
@@ -211,7 +211,7 @@ export const highlightsVideoBgAnimation = (highlightsVideoBgRef: RefObject<HTMLD
     {
       opacity: 1,
       duration: 0.7,
-      delay: 0.7,
+      delay: 0.5,
       scale: 1,
       ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
       scrollTrigger: {
