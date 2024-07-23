@@ -1,7 +1,7 @@
 import { object } from 'yup';
-import { emailValidation, defaultValidation } from '.';
+import { emailValidation, nameValidation } from '.';
 
 export const subscriptionFormValidationSchema = object().shape({
-  name: defaultValidation('Name'),
+  name: nameValidation(),
   email: emailValidation(),
 });
