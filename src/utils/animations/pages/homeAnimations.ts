@@ -84,10 +84,10 @@ export const biggestTechHeaderAnimation = (
   if (biggestTechHeaderText) {
     gsap.fromTo(
       biggestTechHeaderText.lines,
-      { opacity: 0, x: -32 },
+      { opacity: 0, y: 32 },
       {
         opacity: 1,
-        x: 0,
+        y: 0,
         stagger: 0.2,
         duration: 1,
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
@@ -187,10 +187,10 @@ export const highlightsHeaderAnimation = (
   if (highlightsHeaderText) {
     gsap.fromTo(
       highlightsHeaderText.lines,
-      { opacity: 0, x: -32 },
+      { opacity: 0, y: 32 },
       {
         opacity: 1,
-        x: 0,
+        y: 0,
         stagger: 0.5,
         duration: 1,
         ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
