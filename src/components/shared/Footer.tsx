@@ -32,7 +32,9 @@ const footerLinks = [
     title: 'Join the community',
   },
   {
-    link: '#',
+    link: process.env.NEXT_PUBLIC_TICKETING_APP_URL
+      ? `${process.env.NEXT_PUBLIC_TICKETING_APP_URL}/faq`
+      : '#',
     title: 'Ticket FAQ',
   },
 ];
@@ -89,7 +91,9 @@ export const Footer = () => {
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>
-            <Button label='Get Early Bird Tickets' size='lg' animate={false} />
+            <a href={process.env.NEXT_PUBLIC_TICKETING_APP_URL || '#'}>
+              <Button label='Get Early Bird Tickets' size='lg' animate={false} />
+            </a>
 
             <div className='footer-links'>
               <ul>

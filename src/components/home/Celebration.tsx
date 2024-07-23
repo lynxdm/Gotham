@@ -33,7 +33,9 @@ export const Celebration = () => {
         <p className='text-xl' ref={subTextRef}>
           We&apos;re celebrating 11 years of DevFest Lagos. Get your Early Bird tickets soon.
         </p>
-        <Button label='Get Early Bird Tickets' size='lg' />
+        <a href={process.env.NEXT_PUBLIC_TICKETING_APP_URL || '#'}>
+          <Button label='Get Early Bird Tickets' size='lg' />
+        </a>
       </div>
       <div className='celebration-image-gallery-wrapper'>
         <div className='celebration-image-gallery' ref={imageGallerRef}>

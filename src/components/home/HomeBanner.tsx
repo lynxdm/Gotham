@@ -64,7 +64,9 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
           </p>
         </div>
         <div className='text-center'>
-          <Button label='Get Early Bird Tickets' size='lg' />
+          <a href={process.env.NEXT_PUBLIC_TICKETING_APP_URL || '#'}>
+            <Button label='Get Early Bird Tickets' size='lg' />
+          </a>
         </div>
         {process.env.NEXT_PUBLIC_EVENT_TIME && <CountdownTimer />}
       </div>
