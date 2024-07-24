@@ -27,9 +27,12 @@ export const Celebration = () => {
   return (
     <section className='celebration-wrapper' aria-labelledby='celebration-heading'>
       <div className='container celebration-content'>
-        <h2 id='celebrationHeading' className='text-5xl text-center' ref={headerTextRef}>
-          You don&apos;t Want to Miss Out on the 11th Year of DevFest Lagos!
-        </h2>
+        <div className='overflow-hidden'>
+          <h2 id='celebrationHeading' className='text-5xl text-center' ref={headerTextRef}>
+            You don&apos;t Want to Miss Out on the 11th Year of DevFest Lagos!
+          </h2>
+        </div>
+
         <p className='text-xl' ref={subTextRef}>
           We&apos;re celebrating 11 years of DevFest Lagos. Get your Early Bird tickets soon.
         </p>

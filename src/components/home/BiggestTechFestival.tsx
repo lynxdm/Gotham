@@ -35,9 +35,11 @@ export const BiggestTechFestival = () => {
     <section className='big-tech-festival-wrapper' aria-labelledby='festival-heading'>
       <div className='container'>
         <div className='text-content'>
-          <h2 id='biggestTechHeader' className='text-5xl' ref={biggestTechHeaderRef}>
-            Learn and connect at DevFest Lagos &apos;24
-          </h2>
+          <div className='overflow-hidden'>
+            <h2 id='biggestTechHeader' className='text-5xl' ref={biggestTechHeaderRef}>
+              Learn and connect at DevFest Lagos &apos;24
+            </h2>
+          </div>
           <p className='text-xl' ref={biggestTechSubTextRef}>
             Create memories by enjoying an unparalleled experience for developers, tech enthusiasts,
             and innovators.

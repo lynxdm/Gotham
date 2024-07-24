@@ -53,9 +53,12 @@ export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<H
           <div className='subscription-content'>
             <div className='subscription-form-container'>
               <p className='text-xl'>Join the community</p>
-              <h2 className='text-5xl' ref={textHeadingRef}>
-                Don&apos;t loose guard. Get notified first!
-              </h2>
+              <div className='overflow-hidden'>
+                <h2 className='text-5xl' ref={textHeadingRef}>
+                  Don&apos;t loose guard. Get notified first!
+                </h2>
+              </div>
+
               <div ref={subsciptionFormRef}>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                   <Textfield

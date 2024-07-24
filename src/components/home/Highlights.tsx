@@ -37,9 +37,12 @@ export const Highlights = () => {
         {/* <p className='text-lg' role='heading' aria-level={2} ref={highlightsIntroHeaderRef}>
           Highlights
         </p> */}
-        <h2 className='text-5xl' id='highlightsHeader' ref={highlightsHeaderRef}>
-          Recap of DevFest Lagos &apos;23
-        </h2>
+        <div className='overflow-hidden'>
+          <h2 className='text-5xl' id='highlightsHeader' ref={highlightsHeaderRef}>
+            Recap of DevFest Lagos &apos;23
+          </h2>
+        </div>
+
         <div
           className='highlights-img'
           role='img'
