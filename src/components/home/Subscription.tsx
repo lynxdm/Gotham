@@ -36,6 +36,7 @@ export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<H
     formState: { errors },
   } = useForm<subscriptionFormData>({
     mode: 'onBlur',
+    //@ts-ignore
     resolver: yupResolver(subscriptionFormValidationSchema),
   });
 
@@ -51,7 +52,7 @@ export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<H
         <div className='container'>
           <div className='subscription-content'>
             <div className='subscription-form-container'>
-              <p className='text-xl'>Subscribe</p>
+              <p className='text-xl'>Join the community</p>
               <h2 className='text-5xl' ref={textHeadingRef}>
                 Don&apos;t loose guard. Get notified first!
               </h2>

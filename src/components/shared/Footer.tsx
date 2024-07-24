@@ -46,18 +46,18 @@ export const Footer = () => {
         <div className='footer-main'>
           <div>
             <div className='about-pill text-lg'>
-              <p>About this event</p>
+              <p>About the event</p>
             </div>
             <p className='text-base'>
-              This event is organized by <span>Google Developer Group Lagos (GDG Lagos).</span>{' '}
-              Devfest Lagos is an annual conference for tech enthusiasts ranging from novice to
-              leaders in the industry. The event features sessions on Mental Health, Mobile, Design,
-              Web, Cloud, DevOps, Machine Learning, AR/VR, and many more.{' '}
+              DevFest Lagos is an annual conference for tech enthusiasts from novices to industry
+              leaders organized by the Google Developer Group Lagos (GDG Lagos). The event features
+              sessions on various topics, including Mental Health, Mobile Development, Design, Web
+              Development, Cloud Computing, DevOps, Machine Learning, AR/VR, and more.{' '}
             </p>
             <p className='text-base'>
-              This year, Devfest Lagos will take place between 15th and 16th November 2024, at
-              Landmark Events Center, Lagos. The sessions are in parallel; register for sessions
-              that fit your profile or things you&apos;d like to learn about.
+              DevFest Lagos will take place this year on November 15th and 16th, 2024, at the
+              Landmark Events Center in Lagos. Sessions will run simultaneously so be sure to
+              register for those that match your interests or areas you want to learn about.
             </p>
             <div className='socials'>
               <p>Follow us on:</p>

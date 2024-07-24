@@ -50,7 +50,7 @@
 
       .asterisk-container {
         position: absolute;
-        right: 1.5rem;
+        right: 0;
         top: 6rem;
 
         @include media('<=tablet') {
@@ -120,7 +120,7 @@
   /* START OF BIG TECH FESTIVAL STYLES */
 
   .big-tech-festival-wrapper {
-    padding: 6rem 0 8rem;
+    padding: 6rem 0 4rem;
     overflow: hidden;
 
     .text-content {
@@ -176,7 +176,7 @@
     }
 
     h2 {
-      max-width: 700px;
+      // max-width: 600px;
       margin-top: 1rem;
     }
 
@@ -266,7 +266,7 @@
       max-width: 500px;
       position: relative;
 
-      > div {
+      >div {
         height: 232px;
         width: 289px;
       }
@@ -315,7 +315,7 @@
         height: 250px;
         max-width: 280px;
 
-        > div {
+        >div {
           height: 147px;
           width: 183px;
         }
@@ -361,7 +361,7 @@
       gap: 1rem;
       margin-bottom: 3rem;
 
-      > div {
+      >div {
         width: 50%;
       }
 
@@ -441,19 +441,19 @@
       }
 
       @include media('<=desktop') {
-        > div {
+        >div {
           max-width: 480px;
         }
       }
 
       @include media('>tablet', '<=desktop') {
-        > div {
+        >div {
           width: 60%;
         }
       }
 
       @include media('<=tablet') {
-        > div {
+        >div {
           width: 100%;
         }
       }

@@ -1,7 +1,7 @@
 'use client';
 
 import { gsap } from 'gsap';
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, RefObject } from 'react';
 
 const isValidDateFormat = (dateString: string): boolean => {
   const regex = /^\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}:\d{2}$/;
@@ -66,10 +66,18 @@ export const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft(eventDate));
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const daysRef = useRef<HTMLDivElement>(null);
-  const hoursRef = useRef<HTMLDivElement>(null);
-  const minutesRef = useRef<HTMLDivElement>(null);
-  const secondsRef = useRef<HTMLDivElement>(null);
+
+  const activeSecondsRef = useRef<HTMLHeadingElement>(null);
+  const hiddenSecondsRef = useRef<HTMLHeadingElement>(null);
+
+  const activeMinuteRef = useRef<HTMLHeadingElement>(null);
+  const hiddenMinuteRef = useRef<HTMLHeadingElement>(null);
+
+  const activeHoursRef = useRef<HTMLHeadingElement>(null);
+  const hiddenHoursRef = useRef<HTMLHeadingElement>(null);
+
+  const activeDaysRef = useRef<HTMLHeadingElement>(null);
+  const hiddenDaysRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -87,93 +95,105 @@ export const CountdownTimer = () => {
     return () => clearInterval(timer);
   }, [eventDate]);
 
-  useEffect(() => {
-    if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current,
-        { opacity: 0, y: -10 },
-        {
-          opacity: 1,
-          y: 0,
-          delay: 0.4,
-          duration: 1,
-          ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-          scrollTrigger: {
-            trigger: containerRef.current,
-          },
-        },
-      );
+  const { days, hours, minutes, seconds } = timeLeft;
+
+  const moveTimeElement = async ({
+    activeElRef,
+    hiddenElRef,
+  }: {
+    activeElRef: RefObject<HTMLElement>;
+    hiddenElRef: RefObject<HTMLElement>;
+  }) => {
+    const tl1 = gsap.timeline();
+    const tl2 = gsap.timeline();
+
+    const activeEl = activeElRef.current;
+    const hiddenEl = hiddenElRef.current;
+
+    if (activeEl && hiddenEl) {
+      //Move visible element to the bottom
+      tl1.to(activeEl, { y: '100%' });
+
+      //Move visible element to the main view
+      tl2.to(hiddenEl, { y: '0%' });
+
+      //Swap content
+      hiddenEl.innerText = activeEl.innerText;
+
+      //Reset values
+      tl1.set(activeEl, { y: '0%' });
+      tl2.set(hiddenEl, { y: '-100%' });
     }
-  }, [isMounted]);
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        tl1.pause();
+        tl2.pause();
+      } else {
+        tl1.play();
+        tl2.play();
+      }
+    };
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  };
 
   useEffect(() => {
-    if (secondsRef.current) {
-      gsap.fromTo(
-        secondsRef.current,
-        { y: window.innerWidth < 768 ? -13 : -50 },
-        { y: 0, duration: 0.5, ease: 'cubic-bezier(0.7, 0, 0.25, 1)' },
-      );
-    }
+    moveTimeElement({ activeElRef: activeSecondsRef, hiddenElRef: hiddenSecondsRef });
   }, [timeLeft.seconds, isMounted]);
 
   useEffect(() => {
-    if (minutesRef.current) {
-      gsap.fromTo(
-        minutesRef.current,
-        { y: window.innerWidth < 768 ? -13 : -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.2, delay: 0.6 },
-      );
-    }
+    moveTimeElement({ activeElRef: activeMinuteRef, hiddenElRef: hiddenMinuteRef });
   }, [timeLeft.minutes, isMounted]);
 
   useEffect(() => {
-    if (hoursRef.current) {
-      gsap.fromTo(
-        hoursRef.current,
-        { y: window.innerWidth < 768 ? -13 : -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.2, delay: 0.8 },
-      );
-    }
+    moveTimeElement({ activeElRef: activeHoursRef, hiddenElRef: hiddenHoursRef });
   }, [timeLeft.hours, isMounted]);
 
   useEffect(() => {
-    if (daysRef.current) {
-      gsap.fromTo(
-        daysRef.current,
-        { y: window.innerWidth < 768 ? -13 : -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.2, delay: 1 },
-      );
-    }
+    moveTimeElement({ activeElRef: activeDaysRef, hiddenElRef: hiddenDaysRef });
   }, [timeLeft.days, isMounted]);
-
-  const { days, hours, minutes, seconds } = timeLeft;
 
   if (!isMounted) return <div className='timer-placeholder'></div>;
 
   return (
     <div className='countdown-wrapper' ref={containerRef}>
-      <div>
-        <h1 className='text-6xl' ref={daysRef}>
-          {days}
-        </h1>
+      <div className='time-element-container'>
+        <div className='time-element'>
+          <h1 ref={activeDaysRef} className='visible-el text-6xl'>
+            {days}
+          </h1>
+          <h1 ref={hiddenDaysRef} className='hidden-el text-6xl'></h1>
+        </div>
         <p>Days</p>
       </div>
-      <div>
-        <h1 className='text-6xl' ref={hoursRef}>
-          {hours}
-        </h1>
+      <div className='time-element-container'>
+        <div className='time-element'>
+          <h1 ref={activeHoursRef} className='visible-el text-6xl'>
+            {hours}
+          </h1>
+          <h1 ref={hiddenHoursRef} className='hidden-el text-6xl'></h1>
+        </div>
         <p>Hours</p>
       </div>
-      <div>
-        <h1 className='text-6xl' ref={minutesRef}>
-          {minutes}
-        </h1>
+      <div className='time-element-container'>
+        <div className='time-element'>
+          <h1 ref={activeMinuteRef} className='visible-el text-6xl'>
+            {minutes}
+          </h1>
+          <h1 ref={hiddenMinuteRef} className='hidden-el text-6xl'></h1>
+        </div>
         <p>Minutes</p>
       </div>
-      <div>
-        <h1 className='text-6xl' ref={secondsRef}>
-          {seconds}
-        </h1>
+      <div className='time-element-container'>
+        <div className='time-element'>
+          <h1 ref={activeSecondsRef} className='visible-el text-6xl'>
+            {seconds}
+          </h1>
+          <h1 ref={hiddenSecondsRef} className='hidden-el text-6xl'></h1>
+        </div>
         <p>Seconds</p>
       </div>
     </div>

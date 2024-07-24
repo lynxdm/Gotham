@@ -55,12 +55,12 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
             <Image src='/images/svg/asterik.svg' alt='Asterisk' height={40} width={40} />
           </div>
           <h2 className='text-5xl' id='bannerHeaderText' ref={bannerHeaderTextRef}>
-            DevFest Lagos is Back, Bigger and Better
+            The Countdown Begins
           </h2>
 
           <p className='text-xl' ref={bannerSubTextRef}>
-            We&apos;re back! and it&apos;s about to be the biggest and most unforgettable tech
-            festival yet. Get ready for DevFest Lagos 2024.
+            We&apos;re baaaack!!! DevFest Lagos 2024 is coming. It&apos;s bigger and better, and we
+            know it will be unforgettable. Are you ready?
           </p>
         </div>
         <div className='text-center'>
