@@ -30,7 +30,24 @@
     padding: 3px;
   }
 
-  > div {
+  .time-element {
+    min-width: 7rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    .hidden-el {
+      position: absolute;
+      transform: translateY(-100%);
+      top: 0;
+      text-align: center;
+    }
+
+    .visible-el {}
+  }
+
+  .time-element-container {
     background-color: var(--dv-light-yellow);
     border-radius: 32px;
     width: 25%;
@@ -55,6 +72,11 @@
       height: 68px;
       border-radius: 20px;
       gap: 0.1rem;
+
+      .time-element {
+        min-width: 3rem;
+
+      }
 
       h1 {
         font-size: 28px;

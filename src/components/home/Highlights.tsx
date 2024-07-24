@@ -34,11 +34,11 @@ export const Highlights = () => {
   return (
     <section className='highlights-wrapper'>
       <div className='container'>
-        <p className='text-lg' role='heading' aria-level={2} ref={highlightsIntroHeaderRef}>
+        {/* <p className='text-lg' role='heading' aria-level={2} ref={highlightsIntroHeaderRef}>
           Highlights
-        </p>
+        </p> */}
         <h2 className='text-5xl' id='highlightsHeader' ref={highlightsHeaderRef}>
-          Highlights From DevFest Lagos &apos;23
+          Recap of DevFest Lagos &apos;23
         </h2>
         <div
           className='highlights-img'

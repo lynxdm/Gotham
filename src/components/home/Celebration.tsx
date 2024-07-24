@@ -34,7 +34,7 @@ export const Celebration = () => {
           We&apos;re celebrating 11 years of DevFest Lagos. Get your Early Bird tickets soon.
         </p>
         <a href={process.env.NEXT_PUBLIC_TICKETING_APP_URL || '#'}>
-          <Button label='Get Early Bird Tickets' size='lg' />
+          <Button label='Reserve your seat' size='lg' />
         </a>
       </div>
       <div className='celebration-image-gallery-wrapper'>

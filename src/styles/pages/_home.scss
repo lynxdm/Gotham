@@ -50,7 +50,7 @@
 
       .asterisk-container {
         position: absolute;
-        right: 1.5rem;
+        right: 0;
         top: 6rem;
 
         @include media('<=tablet') {
@@ -176,7 +176,7 @@
     }
 
     h2 {
-      max-width: 700px;
+      // max-width: 600px;
       margin-top: 1rem;
     }
 

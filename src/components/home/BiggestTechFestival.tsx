@@ -36,11 +36,11 @@ export const BiggestTechFestival = () => {
       <div className='container'>
         <div className='text-content'>
           <h2 id='biggestTechHeader' className='text-5xl' ref={biggestTechHeaderRef}>
-            The Biggest Tech Festival in Nigeria
+            Learn and connect at DevFest Lagos &apos;24
           </h2>
           <p className='text-xl' ref={biggestTechSubTextRef}>
-            We&apos;re back, and DevFest Lagos is set to be the biggest and most unforgettable tech
-            festival yet. Get ready!
+            Create memories by enjoying an unparalleled experience for developers, tech enthusiasts,
+            and innovators.
           </p>
         </div>
       </div>
