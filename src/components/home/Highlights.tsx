@@ -74,7 +74,7 @@ export const Highlights = () => {
       >
         <div className='video-iframe-wrapper'>
           <iframe
-            src={`${highlightsVideoUrl}?autoplay=1&controls=0`}
+            src={`${highlightsVideoUrl}?autoplay=1`}
             title='2023 DevFest Highlights Video'
             frameBorder='0'
             allow='autoplay; encrypted-media'

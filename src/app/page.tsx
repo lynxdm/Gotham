@@ -7,7 +7,7 @@ import {
   Celebration,
   Highlights,
   HomeBanner,
-  Subscription,
+  // Subscription,
 } from '@/components/home';
 
 export default function Home() {
@@ -35,7 +35,7 @@ export default function Home() {
       <BiggestTechFestival />
       <Highlights />
       <Celebration />
-      <Subscription subscriptionRef={subscriptionRef} />
+      {/* <Subscription subscriptionRef={subscriptionRef} /> */}
       <Footer />
     </main>
   );

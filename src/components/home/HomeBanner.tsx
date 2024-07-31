@@ -40,8 +40,8 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
             <Image
               src='/images/svg/devfest-logo.svg'
               alt='DevFest Lagos Logo'
-              height={36}
-              width={111}
+              height={50}
+              width={167}
             />
           </div>
 
