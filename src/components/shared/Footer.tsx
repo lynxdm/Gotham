@@ -31,12 +31,6 @@ const footerLinks = [
     link: 'https://gdg.community.dev/gdg-lagos/',
     title: 'Join the community',
   },
-  {
-    link: process.env.NEXT_PUBLIC_TICKETING_APP_URL
-      ? `${process.env.NEXT_PUBLIC_TICKETING_APP_URL}/faq`
-      : '#',
-    title: 'Ticket FAQ',
-  },
 ];
 
 export const Footer = () => {
@@ -92,7 +86,7 @@ export const Footer = () => {
               />
             </div>
             <a href={process.env.NEXT_PUBLIC_TICKETING_APP_URL || '#'}>
-              <Button label='Get Early Bird Tickets' size='lg' animate={false} />
+              <Button label='Apply To Speak' size='lg' animate={false} />
             </a>
 
             <div className='footer-links'>
