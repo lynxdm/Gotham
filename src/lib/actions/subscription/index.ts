@@ -1,6 +1,6 @@
 import client from '@/lib/axios';
 import type { AxiosError } from 'axios';
-import { apiRequestParams } from '@/types';
+import { apiRequestParams, UnknownObjectType } from '@/types';
 import { subscriptionFormData } from './models';
 import { useMutation } from '@tanstack/react-query';
 
@@ -11,7 +11,7 @@ export const useNotifyMeApi = ({ onError, onSuccess }: apiRequestParams) => {
       return data;
     },
     onSuccess,
-    onError: (err: AxiosError) => onError?.((err?.response?.data as any)?.message),
+    onError: (err: AxiosError) => onError?.((err?.response?.data as UnknownObjectType)?.message),
   });
 
   return {

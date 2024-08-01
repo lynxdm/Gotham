@@ -1,4 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type UnknownObjectType = Record<string, any>;
+
 export interface apiRequestParams {
-  onError?: (err: any, context?: any) => void;
-  onSuccess?: (res: any) => void;
+  onError?: (err: string) => void;
+  onSuccess?: (res: UnknownObjectType) => void;
 }
