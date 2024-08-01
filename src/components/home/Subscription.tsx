@@ -4,7 +4,9 @@ import Image from 'next/image';
 import { Button, Textfield, Modal } from '../shared';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNotifyMeApi } from '@/lib/actions/subscription';
 import { useState, useEffect, LegacyRef, useRef } from 'react';
+import { subscriptionFormData } from '@/lib/actions/subscription/models';
 import { subscriptionFormValidationSchema } from '@/utils/validationSchemas/subscriptionFormSchema';
 import {
   subscriptionFormContainerAnimation,
@@ -12,16 +14,12 @@ import {
   eventGalleryContainerAnimation,
 } from '@/utils/animations/pages/homeAnimations';
 
-interface subscriptionFormData {
-  name: string;
-  email: string;
-}
-
 export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<HTMLElement> }) => {
   const subsciptionFormRef = useRef<HTMLDivElement>(null);
   const textHeadingRef = useRef<HTMLDivElement>(null);
   const eventGgallerycontainerRef = useRef<HTMLDivElement>(null);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState<boolean>(false);
+  const [formErr, setFormErr] = useState<string | null>(null);
 
   useEffect(() => {
     subscriptionFormContainerAnimation(subsciptionFormRef);
@@ -40,11 +38,26 @@ export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<H
     resolver: yupResolver(subscriptionFormValidationSchema),
   });
 
-  const onSubmit: SubmitHandler<subscriptionFormData> = ({ name, email }) => {
-    console.log(name, email);
+  const handleSubscriptionSuccess = () => {
     setIsSuccessModalOpen(true);
     reset();
   };
+
+  const handleSubscriptionError = (err: string) => {
+    if (typeof err === 'string') {
+      setFormErr(err);
+      setTimeout(() => {
+        setFormErr(null);
+      }, 5000);
+    }
+  };
+
+  const { notifyMe, isLoading } = useNotifyMeApi({
+    onSuccess: handleSubscriptionSuccess,
+    onError: handleSubscriptionError,
+  });
+
+  const onSubmit: SubmitHandler<subscriptionFormData> = (payload) => notifyMe(payload);
 
   return (
     <>
@@ -52,7 +65,7 @@ export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<H
         <div className='container'>
           <div className='subscription-content'>
             <div className='subscription-form-container'>
-              <p className='text-xl'>Join the community</p>
+              <p className='text-xl intro-text'>Join the community</p>
               <div className='overflow-hidden'>
                 <h2 className='text-5xl' ref={textHeadingRef}>
                   Don&apos;t loose guard. Get notified first!
@@ -75,7 +88,8 @@ export const Subscription = ({ subscriptionRef }: { subscriptionRef: LegacyRef<H
                     register={register}
                     error={errors.email?.message}
                   />
-                  <Button type='submit' label='Submit'></Button>
+                  <p className='text-sm text-error'>{formErr}</p>
+                  <Button type='submit' label='Submit' isLoading={isLoading}></Button>
                 </form>
               </div>
             </div>
