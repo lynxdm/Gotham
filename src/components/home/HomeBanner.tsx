@@ -66,7 +66,7 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
           </p>
         </div>
         <div className='text-center'>
-          <a href={process.env.NEXT_PUBLIC_TICKETING_APP_URL || '#'}>
+          <a href={'/apply-to-speak'}>
             <Button label='Apply To Speak' size='lg' />
           </a>
         </div>

@@ -85,7 +85,7 @@ export const Footer = () => {
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>
-            <a href={process.env.NEXT_PUBLIC_TICKETING_APP_URL || '#'}>
+            <a href={'/apply-to-speak'}>
               <Button label='Apply To Speak' size='lg' animate={false} />
             </a>
 
