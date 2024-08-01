@@ -8,14 +8,14 @@ const ApplyToSpeak = () => {
     <div className={styles.apply}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <div>
+          <a href='/'>
             <Image
               src='/images/svg/devfest-logo.svg'
               alt='DevFest Lagos Logo'
               height={50}
               width={167}
             />
-          </div>
+          </a>
         </div>
         <div className={styles.form}>
           <iframe
