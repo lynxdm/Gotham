@@ -29,7 +29,7 @@ export const Celebration = () => {
       <div className='container celebration-content'>
         <div className='overflow-hidden'>
           <h2 id='celebrationHeading' className='text-5xl text-center' ref={headerTextRef}>
-            You don&apos;t Want to Miss Out on the 11th Year of DevFest Lagos!
+            You Don&apos;t Want to Miss Out on The 11th Year of DevFest Lagos!
           </h2>
         </div>
 
