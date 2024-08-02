@@ -18,20 +18,20 @@ export default function Home() {
     setIsMounted(true);
   }, [isMounted]);
 
-  const ScrollToSubscription = () => {
+  /*const ScrollToSubscription = () => {
     if (subscriptionRef.current) {
       window.scrollTo({
         top: subscriptionRef.current.offsetTop,
         behavior: 'smooth',
       });
     }
-  };
+  }; */
 
   if (!isMounted) return <div className='home-banner-paceholder'></div>;
 
   return (
     <main className='home'>
-      <HomeBanner ScrollToSubscription={ScrollToSubscription} />
+      <HomeBanner />
       <BiggestTechFestival />
       <Highlights />
       <Celebration />

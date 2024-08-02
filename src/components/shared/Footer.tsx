@@ -29,7 +29,7 @@ const footerLinks = [
   },
   {
     link: 'https://gdg.community.dev/gdg-lagos/',
-    title: 'Join the community',
+    title: 'Join the Community',
   },
 ];
 
@@ -85,8 +85,8 @@ export const Footer = () => {
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>
-            <a href={'/apply-to-speak'}>
-              <Button label='Apply To Speak' size='lg' animate={false} />
+            <a href={'https://dflagos24-trivia.netlify.app/'}>
+              <Button label='Play Trivia' size='lg' animate={false} />
             </a>
 
             <div className='footer-links'>

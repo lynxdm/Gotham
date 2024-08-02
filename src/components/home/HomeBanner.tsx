@@ -11,7 +11,7 @@ import {
   headerSubTextAnimation,
 } from '@/utils/animations/pages/homeAnimations';
 
-export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () => void }) => {
+export const HomeBanner = (/*{ ScrollToSubscription }: { ScrollToSubscription: () => void }*/) => {
   const logoRef = useRef<HTMLDivElement>(null);
   const bannerHeaderTextRef = useRef<HTMLDivElement>(null);
   const bannerSubTextRef = useRef<HTMLDivElement>(null);
@@ -44,8 +44,9 @@ export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () 
               width={167}
             />
           </div>
-
-          <Button label='Notify me' size='sm' onClick={ScrollToSubscription} />
+          <a href={'https://dflagos24-trivia.netlify.app/'}>
+            <Button label='Play Trivia' size='sm' />
+          </a>
         </div>
         <div className='hero-text-container'>
           <div className='hashtag-container'>
