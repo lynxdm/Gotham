@@ -11,7 +11,7 @@ import {
   headerSubTextAnimation,
 } from '@/utils/animations/pages/homeAnimations';
 
-export const HomeBanner = ({ ScrollToSubscription }: { ScrollToSubscription: () => void }) => {
+export const HomeBanner = (/*{ ScrollToSubscription }: { ScrollToSubscription: () => void }*/) => {
   const logoRef = useRef<HTMLDivElement>(null);
   const bannerHeaderTextRef = useRef<HTMLDivElement>(null);
   const bannerSubTextRef = useRef<HTMLDivElement>(null);
