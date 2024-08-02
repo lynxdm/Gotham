@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <main className='home'>
-      <HomeBanner ScrollToSubscription={ScrollToSubscription} />
+      <HomeBanner />
       <BiggestTechFestival />
       <Highlights />
       <Celebration />
