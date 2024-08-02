@@ -7,12 +7,11 @@ import {
   celebrationImageGalleryAnimation,
 } from '@/utils/animations/pages/homeAnimations';
 
-const TopicPill = ({ topic, index }: { topic: { title: string; bg: string }; index: number }) => {
+const TopicPill = ({ topic }: { topic: { title: string; bg: string } }) => {
   return (
     <div
       className='topic-pill'
       style={{ backgroundColor: topic.bg }}
-      key={index}
       role='region'
       aria-label={`Topic: ${topic.title}`}
     >
@@ -103,7 +102,7 @@ export const Celebration = () => {
       </div>
       <div className='container topics-wrapper'>
         {topics.map((topic, index) => (
-          <TopicPill topic={topic} index={index} />
+          <TopicPill topic={topic} key={index} />
         ))}
       </div>
     </section>
