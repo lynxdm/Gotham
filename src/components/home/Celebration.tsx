@@ -2,17 +2,23 @@ import { Button } from '../shared';
 import SplitType from 'split-type';
 import { useRef, useEffect } from 'react';
 import {
+  topicPillAnimation,
   celebrationHeaderTextAnimation,
   celebrationSubTextAnimation,
-  celebrationImageGalleryAnimation,
 } from '@/utils/animations/pages/homeAnimations';
 
 const TopicPill = ({ topic }: { topic: { title: string; bg: string } }) => {
+  const topicPillRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    topicPillAnimation(topicPillRef);
+  }, []);
   return (
     <div
       className='topic-pill'
       style={{ backgroundColor: topic.bg }}
       role='region'
+      ref={topicPillRef}
       aria-label={`Topic: ${topic.title}`}
     >
       <p>{topic.title}</p>
@@ -71,13 +77,11 @@ const topics = [
 export const Celebration = () => {
   const headerTextRef = useRef<HTMLDivElement>(null);
   const subTextRef = useRef<HTMLDivElement>(null);
-  const imageGallerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const headerText = SplitType.create('#celebrationHeading');
     celebrationHeaderTextAnimation(headerText, headerTextRef);
     celebrationSubTextAnimation(subTextRef);
-    celebrationImageGalleryAnimation(imageGallerRef);
 
     return () => {
       headerText.revert();

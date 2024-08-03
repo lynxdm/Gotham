@@ -233,49 +233,6 @@ export const celebrationHeaderTextAnimation = (
 export const celebrationSubTextAnimation = (subTextRef: RefObject<HTMLDivElement>) =>
   headerSubTextAnimation(subTextRef, true);
 
-export const celebrationImageGalleryAnimation = (imageGalleryRef: RefObject<HTMLDivElement>) => {
-  if (imageGalleryRef.current) {
-    const images = imageGalleryRef.current.querySelectorAll('div');
-    const isLargeScreen = window.innerWidth >= 1024;
-
-    const cordinates = isLargeScreen
-      ? [
-          { x: 90, y: -70 },
-          { x: -90, y: -120 },
-          { x: 20, y: -100 },
-          { x: -150, y: -180, rotate: -22 },
-          { x: 170, y: -200, rotate: 22 },
-        ]
-      : [
-          { x: 30, y: -10 },
-          { x: -20, y: -30 },
-          { x: 0, y: -30 },
-          { x: -15, y: -70, rotate: -10 },
-          { x: 10, y: -80, rotate: 22 },
-        ];
-
-    const animateCard = (index: number, x: number, y: number, rotate?: number) => {
-      const scrollTrigger = {
-        trigger: imageGalleryRef.current,
-        start: isLargeScreen ? '80px 80%' : '20px 80%',
-        // markers: true,
-      };
-
-      return gsap.to(images[index], {
-        y,
-        x,
-        rotate,
-        scrollTrigger,
-        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
-      });
-    };
-
-    cordinates.forEach(({ x, y, rotate }, index) => {
-      animateCard(index, x, y, rotate);
-    });
-  }
-};
-
 //SUBSCRIPTION SECTION ANIMATION
 
 export const subscriptionFormContainerAnimation = (
@@ -293,6 +250,25 @@ export const subscriptionFormContainerAnimation = (
         scrollTrigger: {
           trigger: subscriptionFormContainerRef.current,
           start: '40px 85%',
+        },
+      },
+    );
+  }
+};
+
+export const topicPillAnimation = (topicPillRef: RefObject<HTMLDivElement>) => {
+  if (topicPillRef.current) {
+    gsap.fromTo(
+      topicPillRef.current,
+      { opacity: 0, y: 32 },
+      {
+        opacity: 1,
+        y: 0,
+        delay: 0.4,
+        duration: 1,
+        ease: 'cubic-bezier(0.7, 0, 0.25, 1)',
+        scrollTrigger: {
+          trigger: topicPillRef.current,
         },
       },
     );
