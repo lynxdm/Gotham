@@ -1,23 +1,87 @@
-import Image from 'next/image';
 import { Button } from '../shared';
 import SplitType from 'split-type';
 import { useRef, useEffect } from 'react';
 import {
+  topicPillAnimation,
   celebrationHeaderTextAnimation,
   celebrationSubTextAnimation,
-  celebrationImageGalleryAnimation,
 } from '@/utils/animations/pages/homeAnimations';
+
+const TopicPill = ({ topic }: { topic: { title: string; bg: string } }) => {
+  const topicPillRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    topicPillAnimation(topicPillRef);
+  }, []);
+  return (
+    <div
+      className='topic-pill'
+      style={{ backgroundColor: topic.bg }}
+      role='region'
+      ref={topicPillRef}
+      aria-label={`Topic: ${topic.title}`}
+    >
+      <p>{topic.title}</p>
+    </div>
+  );
+};
+
+const topics = [
+  {
+    title: 'Cloud Computing ☁️',
+    bg: '#FFFAEB',
+  },
+  {
+    title: '⁠⁠Blockchain 💎',
+    bg: '#F8D8D8',
+  },
+  {
+    title: '⁠⁠Cybersecurity 👾',
+    bg: '#D3F1F8',
+  },
+  {
+    title: 'AI & ML 🦾',
+    bg: '#CCF6C5',
+  },
+  {
+    title: 'Android Development 📱',
+    bg: '#F8D8D8',
+  },
+  {
+    title: 'Web Development 🌐',
+    bg: '#D3F1F8',
+  },
+  {
+    title: 'UX/UI Design 🤩',
+    bg: '#FFFAEB',
+  },
+  {
+    title: '⁠⁠Data Science 📊',
+    bg: '#CCF6C5',
+  },
+  {
+    title: 'DevOps 👨‍💻',
+    bg: '#FFFFFF',
+  },
+  {
+    title: '⁠⁠IoT (Internet of Things) 📶',
+    bg: '#D3F1F8',
+  },
+
+  {
+    title: '⁠⁠Product Management 🫂',
+    bg: '#CCF6C5',
+  },
+];
 
 export const Celebration = () => {
   const headerTextRef = useRef<HTMLDivElement>(null);
   const subTextRef = useRef<HTMLDivElement>(null);
-  const imageGallerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const headerText = SplitType.create('#celebrationHeading');
     celebrationHeaderTextAnimation(headerText, headerTextRef);
     celebrationSubTextAnimation(subTextRef);
-    celebrationImageGalleryAnimation(imageGallerRef);
 
     return () => {
       headerText.revert();
@@ -29,7 +93,7 @@ export const Celebration = () => {
       <div className='container celebration-content'>
         <div className='overflow-hidden'>
           <h2 id='celebrationHeading' className='text-5xl text-center' ref={headerTextRef}>
-            You don&apos;t Want to Miss Out on the 11th Year of DevFest Lagos!
+            You Don&apos;t Want to Miss Out on The 11th Year of DevFest Lagos!
           </h2>
         </div>
 
@@ -40,24 +104,10 @@ export const Celebration = () => {
           <Button label='Apply To Speak' size='lg' />
         </a>
       </div>
-      <div className='celebration-image-gallery-wrapper'>
-        <div className='celebration-image-gallery' ref={imageGallerRef}>
-          <div className='celebration-image-one'>
-            <Image src='/images/png/free-swag-white.png' fill alt='Free swag' />
-          </div>
-          <div className='celebration-image-two'>
-            <Image src='/images/png/community.png' fill alt='Community engagement' />
-          </div>
-          <div className='celebration-image-three'>
-            <Image src='/images/png/amazing-sessions.png' fill alt='Amazing sessions' />
-          </div>
-          <div className='celebration-image-four'>
-            <Image src='/images/png/free-swag-white.png' fill alt='Free swag' />
-          </div>
-          <div className='celebration-image-five'>
-            <Image src='/images/png/fun-activities.png' fill alt='Fun activities' />
-          </div>
-        </div>
+      <div className='container topics-wrapper'>
+        {topics.map((topic, index) => (
+          <TopicPill topic={topic} key={index} />
+        ))}
       </div>
     </section>
   );

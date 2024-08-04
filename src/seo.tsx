@@ -16,7 +16,7 @@ export const SEO: FC<Props> = ({
   title: _title,
   description,
   keywords = 'gdg lagos, devfest, devfest lagos, devfest lagos 2023',
-  image = '/og-images/home-page.png',
+  image = '/opengraph-image.jpeg',
   tags = [],
 }) => {
   const title = `Devfest Lagos 2024 | ${_title}`;
